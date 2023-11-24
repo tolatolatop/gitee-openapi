@@ -28,7 +28,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -37,7 +37,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -145,7 +145,7 @@
         "summary": "\u6d4b\u8bd5WebHook\u662f\u5426\u53d1\u9001\u6210\u529f",
         "parameters": [
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -154,7 +154,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -163,7 +163,7 @@
             }
           },
           {
-            "name": "id*",
+            "name": "id",
             "in": "path",
             "description": "Webhook\u7684ID",
             "required": true,
@@ -214,7 +214,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -223,7 +223,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -232,7 +232,7 @@
             }
           },
           {
-            "name": "id*",
+            "name": "id",
             "in": "path",
             "description": "Webhook\u7684ID",
             "required": true,
@@ -310,7 +310,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -319,7 +319,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -415,7 +415,7 @@
             }
           },
           {
-            "name": "username*",
+            "name": "username",
             "in": "path",
             "description": "\u7528\u6237\u540d(username/login)",
             "required": true,
@@ -481,7 +481,7 @@
             }
           },
           {
-            "name": "username*",
+            "name": "username",
             "in": "path",
             "description": "\u7528\u6237\u540d(username/login)",
             "required": true,
@@ -490,7 +490,7 @@
             }
           },
           {
-            "name": "target_user*",
+            "name": "target_user",
             "in": "path",
             "description": "\u76ee\u6807\u7528\u6237\u7684\u7528\u6237\u540d(username/login)",
             "required": true,
@@ -526,7 +526,7 @@
             }
           },
           {
-            "name": "username*",
+            "name": "username",
             "in": "path",
             "description": "\u7528\u6237\u540d(username/login)",
             "required": true,
@@ -640,7 +640,7 @@
             }
           },
           {
-            "name": "username*",
+            "name": "username",
             "in": "path",
             "description": "\u7528\u6237\u540d(username/login)",
             "required": true,
@@ -754,7 +754,7 @@
             }
           },
           {
-            "name": "username*",
+            "name": "username",
             "in": "path",
             "description": "\u7528\u6237\u540d(username/login)",
             "required": true,
@@ -901,7 +901,7 @@
             }
           },
           {
-            "name": "username*",
+            "name": "username",
             "in": "path",
             "description": "\u7528\u6237\u540d(username/login)",
             "required": true,
@@ -937,7 +937,7 @@
             }
           },
           {
-            "name": "path*",
+            "name": "path",
             "in": "query",
             "description": "Namespace path",
             "required": true,
@@ -1390,7 +1390,7 @@
             }
           },
           {
-            "name": "id*",
+            "name": "id",
             "in": "path",
             "description": "\u516c\u94a5 ID",
             "required": true,
@@ -1513,7 +1513,7 @@
             }
           },
           {
-            "name": "q*",
+            "name": "q",
             "in": "query",
             "description": "\u641c\u7d22\u5173\u952e\u5b57",
             "required": true,
@@ -1678,7 +1678,7 @@
             }
           },
           {
-            "name": "q*",
+            "name": "q",
             "in": "query",
             "description": "\u641c\u7d22\u5173\u952e\u5b57",
             "required": true,
@@ -1909,7 +1909,7 @@
             }
           },
           {
-            "name": "q*",
+            "name": "q",
             "in": "query",
             "description": "\u641c\u7d22\u5173\u952e\u5b57",
             "required": true,
@@ -2227,7 +2227,7 @@
             }
           },
           {
-            "name": "enterprise*",
+            "name": "enterprise",
             "in": "path",
             "description": "\u4f01\u4e1a\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -2518,7 +2518,7 @@
             }
           },
           {
-            "name": "org*",
+            "name": "org",
             "in": "path",
             "description": "\u7ec4\u7ec7\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -2800,7 +2800,7 @@
             }
           },
           {
-            "name": "username*",
+            "name": "username",
             "in": "path",
             "description": "\u7528\u6237\u540d(username/login)",
             "required": true,
@@ -3409,7 +3409,7 @@
         "summary": "\u5f00\u901aGitee Go",
         "parameters": [
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -3418,7 +3418,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93path",
             "required": true,
@@ -3469,7 +3469,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -3478,7 +3478,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -3487,7 +3487,7 @@
             }
           },
           {
-            "name": "tag*",
+            "name": "tag",
             "in": "path",
             "description": "Tag \u540d\u79f0",
             "required": true,
@@ -3556,7 +3556,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -3565,7 +3565,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -3634,7 +3634,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -3643,7 +3643,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -3652,7 +3652,7 @@
             }
           },
           {
-            "name": "id*",
+            "name": "id",
             "in": "path",
             "description": "\u53d1\u884c\u7248\u672c\u7684ID",
             "required": true,
@@ -3721,7 +3721,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -3730,7 +3730,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -3817,7 +3817,7 @@
         "summary": "\u83b7\u53d6\u6700\u8fd130\u5929\u7684\u4e03\u65e5\u4ee5\u5185\u8bbf\u95ee\u91cf",
         "parameters": [
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -3826,7 +3826,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -3897,7 +3897,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -3906,7 +3906,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -3942,7 +3942,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -3951,7 +3951,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -4233,7 +4233,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -4242,7 +4242,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -4251,7 +4251,7 @@
             }
           },
           {
-            "name": "username*",
+            "name": "username",
             "in": "path",
             "description": "\u7528\u6237\u540d(username/login)",
             "required": true,
@@ -4350,7 +4350,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -4359,7 +4359,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -4368,7 +4368,7 @@
             }
           },
           {
-            "name": "username*",
+            "name": "username",
             "in": "path",
             "description": "\u7528\u6237\u540d(username/login)",
             "required": true,
@@ -4404,7 +4404,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -4413,7 +4413,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -4521,7 +4521,7 @@
         "summary": "\u6e05\u7a7a\u4e00\u4e2a\u4ed3\u5e93",
         "parameters": [
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -4530,7 +4530,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -4581,7 +4581,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -4590,7 +4590,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -4641,7 +4641,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -4650,7 +4650,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -4710,7 +4710,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -4719,7 +4719,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -4776,7 +4776,7 @@
         "summary": "\u4fee\u6539\u4ee3\u7801\u5ba1\u67e5\u8bbe\u7f6e",
         "parameters": [
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -4785,7 +4785,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -4804,19 +4804,19 @@
                     "type": "string",
                     "description": "\u7528\u6237\u6388\u6743\u7801"
                   },
-                  "assignees*": {
+                  "assignees": {
                     "type": "string",
                     "description": "\u5ba1\u67e5\u4eba\u5458username\uff0c\u53ef\u591a\u4e2a\uff0c\u534a\u89d2\u9017\u53f7\u5206\u9694\uff0c\u5982\uff1a(username1,username2)"
                   },
-                  "testers*": {
+                  "testers": {
                     "type": "string",
                     "description": "\u6d4b\u8bd5\u4eba\u5458username\uff0c\u53ef\u591a\u4e2a\uff0c\u534a\u89d2\u9017\u53f7\u5206\u9694\uff0c\u5982\uff1a(username1,username2)"
                   },
-                  "assignees_number*": {
+                  "assignees_number": {
                     "type": "integer",
                     "description": "\u6700\u5c11\u5ba1\u67e5\u4eba\u6570"
                   },
-                  "testers_number*": {
+                  "testers_number": {
                     "type": "integer",
                     "description": "\u6700\u5c11\u6d4b\u8bd5\u4eba\u6570"
                   }
@@ -4873,7 +4873,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -4882,7 +4882,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -5128,7 +5128,7 @@
         "summary": "\u8bf7\u6c42\u5efa\u7acbPages",
         "parameters": [
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -5137,7 +5137,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -5188,7 +5188,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -5197,7 +5197,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -5233,7 +5233,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -5242,7 +5242,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -5287,7 +5287,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -5296,7 +5296,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -5341,7 +5341,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -5350,7 +5350,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -5359,7 +5359,7 @@
             }
           },
           {
-            "name": "path*",
+            "name": "path",
             "in": "path",
             "description": "\u6587\u4ef6\u7684\u8def\u5f84",
             "required": true,
@@ -5404,7 +5404,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -5413,7 +5413,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -5422,7 +5422,7 @@
             }
           },
           {
-            "name": "path*",
+            "name": "path",
             "in": "path",
             "description": "\u6587\u4ef6\u7684\u8def\u5f84\uff081 MB \u4ee5\u5185\u7684\u6587\u4ef6\u6587\u4ef6\uff09",
             "required": true,
@@ -5470,7 +5470,7 @@
         "summary": "\u65b0\u5efa\u6587\u4ef6",
         "parameters": [
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -5479,7 +5479,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -5488,7 +5488,7 @@
             }
           },
           {
-            "name": "path*",
+            "name": "path",
             "in": "path",
             "description": "\u6587\u4ef6\u7684\u8def\u5f84",
             "required": true,
@@ -5507,11 +5507,11 @@
                     "type": "string",
                     "description": "\u7528\u6237\u6388\u6743\u7801"
                   },
-                  "content*": {
+                  "content": {
                     "type": "string",
                     "description": "\u6587\u4ef6\u5185\u5bb9, \u8981\u7528 base64 \u7f16\u7801"
                   },
-                  "message*": {
+                  "message": {
                     "type": "string",
                     "description": "\u63d0\u4ea4\u4fe1\u606f"
                   },
@@ -5583,7 +5583,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -5592,7 +5592,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -5601,7 +5601,7 @@
             }
           },
           {
-            "name": "path*",
+            "name": "path",
             "in": "path",
             "description": "\u6587\u4ef6\u7684\u8def\u5f84",
             "required": true,
@@ -5685,7 +5685,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -5694,7 +5694,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -5778,7 +5778,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -5787,7 +5787,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -5796,7 +5796,7 @@
             }
           },
           {
-            "name": "id*",
+            "name": "id",
             "in": "path",
             "description": "\u516c\u94a5 ID",
             "required": true,
@@ -5844,7 +5844,7 @@
         "summary": "\u542f\u7528\u4ed3\u5e93\u516c\u94a5",
         "parameters": [
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -5853,7 +5853,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -5862,7 +5862,7 @@
             }
           },
           {
-            "name": "id*",
+            "name": "id",
             "in": "path",
             "description": "\u516c\u94a5 ID",
             "required": true,
@@ -5913,7 +5913,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -5922,7 +5922,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -5988,7 +5988,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -5997,7 +5997,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -6072,7 +6072,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -6081,7 +6081,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -6090,7 +6090,7 @@
             }
           },
           {
-            "name": "base*",
+            "name": "base",
             "in": "path",
             "description": "\u5bf9\u6bd4\u7684\u8d77\u70b9\u3002Commit SHA\u3001\u5206\u652f\u540d\u6216\u6807\u7b7e\u540d",
             "required": true,
@@ -6099,7 +6099,7 @@
             }
           },
           {
-            "name": "head*",
+            "name": "head",
             "in": "path",
             "description": "\u5bf9\u6bd4\u7684\u7ec8\u70b9\u3002Commit SHA\u3001\u5206\u652f\u540d\u6216\u6807\u7b7e\u540d",
             "required": true,
@@ -6174,7 +6174,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -6183,7 +6183,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -6192,7 +6192,7 @@
             }
           },
           {
-            "name": "sha*",
+            "name": "sha",
             "in": "path",
             "description": "\u63d0\u4ea4\u7684SHA\u503c\u6216\u8005\u5206\u652f\u540d",
             "required": true,
@@ -6267,7 +6267,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -6276,7 +6276,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -6396,7 +6396,7 @@
         "summary": "\u521b\u5efaCommit\u8bc4\u8bba",
         "parameters": [
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -6405,7 +6405,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -6414,7 +6414,7 @@
             }
           },
           {
-            "name": "sha*",
+            "name": "sha",
             "in": "path",
             "description": "\u8bc4\u8bba\u7684sha\u503c",
             "required": true,
@@ -6433,7 +6433,7 @@
                     "type": "string",
                     "description": "\u7528\u6237\u6388\u6743\u7801"
                   },
-                  "body*": {
+                  "body": {
                     "type": "string",
                     "description": "\u8bc4\u8bba\u7684\u5185\u5bb9"
                   },
@@ -6516,7 +6516,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -6525,7 +6525,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -6534,7 +6534,7 @@
             }
           },
           {
-            "name": "id*",
+            "name": "id",
             "in": "path",
             "description": "\u8bc4\u8bba\u7684ID",
             "required": true,
@@ -6606,7 +6606,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -6615,7 +6615,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -6624,7 +6624,7 @@
             }
           },
           {
-            "name": "ref*",
+            "name": "ref",
             "in": "path",
             "description": "Commit\u7684Reference",
             "required": true,
@@ -6714,7 +6714,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -6723,7 +6723,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -6813,7 +6813,7 @@
         "summary": "\u65b0\u5efa\u4fdd\u62a4\u5206\u652f\u89c4\u5219",
         "parameters": [
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -6822,7 +6822,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -6841,19 +6841,19 @@
                     "type": "string",
                     "description": "\u7528\u6237\u6388\u6743\u7801"
                   },
-                  "wildcard*": {
+                  "wildcard": {
                     "type": "string",
                     "description": "\u5206\u652f/\u901a\u914d\u7b26"
                   },
-                  "pusher*": {
+                  "pusher": {
                     "type": "string",
                     "description": "\u53ef\u63a8\u9001\u4ee3\u7801\u6210\u5458\u3002developer\uff1a\u4ed3\u5e93\u7ba1\u7406\u5458\u548c\u5f00\u53d1\u8005\uff1badmin\uff1a\u4ed3\u5e93\u7ba1\u7406\u5458\uff1bnone\uff1a\u7981\u6b62\u4efb\u4f55\u4eba\u5408\u5e76; \u7528\u6237\uff1a\u4e2a\u4eba\u7684\u5730\u5740 path\uff08\u591a\u4e2a\u7528\u6237\u7528 ';' \u9694\u5f00\uff09"
                   },
-                  "merger*": {
+                  "merger": {
                     "type": "string",
                     "description": "\u53ef\u5408\u5e76 Pull Request \u6210\u5458\u3002developer\uff1a\u4ed3\u5e93\u7ba1\u7406\u5458\u548c\u5f00\u53d1\u8005\uff1badmin\uff1a\u4ed3\u5e93\u7ba1\u7406\u5458\uff1bnone\uff1a\u7981\u6b62\u4efb\u4f55\u4eba\u5408\u5e76; \u7528\u6237\uff1a\u4e2a\u4eba\u7684\u5730\u5740 path\uff08\u591a\u4e2a\u7528\u6237\u7528 ';' \u9694\u5f00\uff09"
                   },
-                  "mode*": {
+                  "mode": {
                     "type": "string",
                     "description": "\u6a21\u5f0f\u3002standard: \u6807\u51c6\u6a21\u5f0f, review: \u8bc4\u5ba1\u6a21\u5f0f"
                   }
@@ -6916,7 +6916,7 @@
         "summary": "\u66f4\u65b0\u4fdd\u62a4\u5206\u652f\u89c4\u5219",
         "parameters": [
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -6925,7 +6925,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -6934,7 +6934,7 @@
             }
           },
           {
-            "name": "wildcard*",
+            "name": "wildcard",
             "in": "path",
             "description": "\u5206\u652f/\u901a\u914d\u7b26",
             "required": true,
@@ -6957,15 +6957,15 @@
                     "type": "string",
                     "description": "\u65b0\u5206\u652f/\u901a\u914d\u7b26(\u4e3a\u7a7a\u4e0d\u4fee\u6539)"
                   },
-                  "pusher*": {
+                  "pusher": {
                     "type": "string",
                     "description": "\u53ef\u63a8\u9001\u4ee3\u7801\u6210\u5458\u3002developer\uff1a\u4ed3\u5e93\u7ba1\u7406\u5458\u548c\u5f00\u53d1\u8005\uff1badmin\uff1a\u4ed3\u5e93\u7ba1\u7406\u5458\uff1bnone\uff1a\u7981\u6b62\u4efb\u4f55\u4eba\u5408\u5e76; \u7528\u6237\uff1a\u4e2a\u4eba\u7684\u5730\u5740 path\uff08\u591a\u4e2a\u7528\u6237\u7528 ';' \u9694\u5f00\uff09"
                   },
-                  "merger*": {
+                  "merger": {
                     "type": "string",
                     "description": "\u53ef\u5408\u5e76 Pull Request \u6210\u5458\u3002developer\uff1a\u4ed3\u5e93\u7ba1\u7406\u5458\u548c\u5f00\u53d1\u8005\uff1badmin\uff1a\u4ed3\u5e93\u7ba1\u7406\u5458\uff1bnone\uff1a\u7981\u6b62\u4efb\u4f55\u4eba\u5408\u5e76; \u7528\u6237\uff1a\u4e2a\u4eba\u7684\u5730\u5740 path\uff08\u591a\u4e2a\u7528\u6237\u7528 ';' \u9694\u5f00\uff09"
                   },
-                  "mode*": {
+                  "mode": {
                     "type": "string",
                     "description": "\u6a21\u5f0f\u3002standard: \u6807\u51c6\u6a21\u5f0f, review: \u8bc4\u5ba1\u6a21\u5f0f"
                   }
@@ -7027,7 +7027,7 @@
         "summary": "\u8bbe\u7f6e\u5206\u652f\u4fdd\u62a4",
         "parameters": [
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -7036,7 +7036,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -7045,7 +7045,7 @@
             }
           },
           {
-            "name": "branch*",
+            "name": "branch",
             "in": "path",
             "description": "\u5206\u652f\u540d\u79f0",
             "required": true,
@@ -7117,7 +7117,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -7126,7 +7126,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -7135,7 +7135,7 @@
             }
           },
           {
-            "name": "branch*",
+            "name": "branch",
             "in": "path",
             "description": "\u5206\u652f\u540d\u79f0",
             "required": true,
@@ -7192,7 +7192,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -7201,7 +7201,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -7255,7 +7255,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -7264,7 +7264,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -7357,7 +7357,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -7366,7 +7366,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -7375,7 +7375,7 @@
             }
           },
           {
-            "name": "number*",
+            "name": "number",
             "in": "path",
             "description": "\u7b2c\u51e0\u4e2aPR\uff0c\u5373\u672c\u4ed3\u5e93PR\u7684\u5e8f\u6570",
             "required": true,
@@ -7384,7 +7384,7 @@
             }
           },
           {
-            "name": "name*",
+            "name": "name",
             "in": "path",
             "description": "\u6807\u7b7e\u540d\u79f0(\u6279\u91cf\u5220\u9664\u7528\u82f1\u6587\u9017\u53f7\u5206\u9694\uff0c\u5982: bug,feature)",
             "required": true,
@@ -7420,7 +7420,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -7429,7 +7429,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -7438,7 +7438,7 @@
             }
           },
           {
-            "name": "number*",
+            "name": "number",
             "in": "path",
             "description": "\u7b2c\u51e0\u4e2aPR\uff0c\u5373\u672c\u4ed3\u5e93PR\u7684\u5e8f\u6570",
             "required": true,
@@ -7519,7 +7519,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -7528,7 +7528,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -7537,7 +7537,7 @@
             }
           },
           {
-            "name": "number*",
+            "name": "number",
             "in": "path",
             "description": "\u7b2c\u51e0\u4e2aPR\uff0c\u5373\u672c\u4ed3\u5e93PR\u7684\u5e8f\u6570",
             "required": true,
@@ -7666,7 +7666,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -7675,7 +7675,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -7825,7 +7825,7 @@
         "summary": "\u6307\u6d3e\u7528\u6237\u6d4b\u8bd5 Pull Request",
         "parameters": [
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -7834,7 +7834,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -7843,7 +7843,7 @@
             }
           },
           {
-            "name": "number*",
+            "name": "number",
             "in": "path",
             "description": "\u7b2c\u51e0\u4e2aPR\uff0c\u5373\u672c\u4ed3\u5e93PR\u7684\u5e8f\u6570",
             "required": true,
@@ -7862,7 +7862,7 @@
                     "type": "string",
                     "description": "\u7528\u6237\u6388\u6743\u7801"
                   },
-                  "testers*": {
+                  "testers": {
                     "type": "string",
                     "description": "\u7528\u6237\u7684\u4e2a\u4eba\u7a7a\u95f4\u5730\u5740, \u4ee5 , \u5206\u9694"
                   }
@@ -8006,7 +8006,7 @@
         "summary": "\u6307\u6d3e\u7528\u6237\u5ba1\u67e5 Pull Request",
         "parameters": [
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -8015,7 +8015,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -8024,7 +8024,7 @@
             }
           },
           {
-            "name": "number*",
+            "name": "number",
             "in": "path",
             "description": "\u7b2c\u51e0\u4e2aPR\uff0c\u5373\u672c\u4ed3\u5e93PR\u7684\u5e8f\u6570",
             "required": true,
@@ -8043,7 +8043,7 @@
                     "type": "string",
                     "description": "\u7528\u6237\u6388\u6743\u7801"
                   },
-                  "assignees*": {
+                  "assignees": {
                     "type": "string",
                     "description": "\u7528\u6237\u7684\u4e2a\u4eba\u7a7a\u95f4\u5730\u5740, \u4ee5 , \u5206\u9694"
                   }
@@ -8187,7 +8187,7 @@
         "summary": "\u5904\u7406 Pull Request \u6d4b\u8bd5",
         "parameters": [
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -8196,7 +8196,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -8205,7 +8205,7 @@
             }
           },
           {
-            "name": "number*",
+            "name": "number",
             "in": "path",
             "description": "\u7b2c\u51e0\u4e2aPR\uff0c\u5373\u672c\u4ed3\u5e93PR\u7684\u5e8f\u6570",
             "required": true,
@@ -8251,7 +8251,7 @@
         "summary": "\u5904\u7406 Pull Request \u5ba1\u67e5",
         "parameters": [
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -8260,7 +8260,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -8269,7 +8269,7 @@
             }
           },
           {
-            "name": "number*",
+            "name": "number",
             "in": "path",
             "description": "\u7b2c\u51e0\u4e2aPR\uff0c\u5373\u672c\u4ed3\u5e93PR\u7684\u5e8f\u6570",
             "required": true,
@@ -8324,7 +8324,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -8333,7 +8333,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -8342,7 +8342,7 @@
             }
           },
           {
-            "name": "number*",
+            "name": "number",
             "in": "path",
             "description": "\u7b2c\u51e0\u4e2aPR\uff0c\u5373\u672c\u4ed3\u5e93PR\u7684\u5e8f\u6570",
             "required": true,
@@ -8378,7 +8378,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -8387,7 +8387,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -8396,7 +8396,7 @@
             }
           },
           {
-            "name": "number*",
+            "name": "number",
             "in": "path",
             "description": "\u7b2c\u51e0\u4e2aPR\uff0c\u5373\u672c\u4ed3\u5e93PR\u7684\u5e8f\u6570",
             "required": true,
@@ -8462,7 +8462,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -8471,7 +8471,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -8480,7 +8480,7 @@
             }
           },
           {
-            "name": "number*",
+            "name": "number",
             "in": "path",
             "description": "\u7b2c\u51e0\u4e2aPR\uff0c\u5373\u672c\u4ed3\u5e93PR\u7684\u5e8f\u6570",
             "required": true,
@@ -8546,7 +8546,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -8555,7 +8555,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -8564,7 +8564,7 @@
             }
           },
           {
-            "name": "number*",
+            "name": "number",
             "in": "path",
             "description": "\u7b2c\u51e0\u4e2aPR\uff0c\u5373\u672c\u4ed3\u5e93PR\u7684\u5e8f\u6570",
             "required": true,
@@ -8636,7 +8636,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -8645,7 +8645,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -8654,7 +8654,7 @@
             }
           },
           {
-            "name": "number*",
+            "name": "number",
             "in": "path",
             "description": "\u7b2c\u51e0\u4e2aPR\uff0c\u5373\u672c\u4ed3\u5e93PR\u7684\u5e8f\u6570",
             "required": true,
@@ -8804,7 +8804,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -8813,7 +8813,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -9053,7 +9053,7 @@
             }
           },
           {
-            "name": "org*",
+            "name": "org",
             "in": "path",
             "description": "\u7ec4\u7ec7\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -9062,7 +9062,7 @@
             }
           },
           {
-            "name": "username*",
+            "name": "username",
             "in": "path",
             "description": "\u7528\u6237\u540d(username/login)",
             "required": true,
@@ -9098,7 +9098,7 @@
             }
           },
           {
-            "name": "org*",
+            "name": "org",
             "in": "path",
             "description": "\u7ec4\u7ec7\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -9164,7 +9164,7 @@
             }
           },
           {
-            "name": "org*",
+            "name": "org",
             "in": "path",
             "description": "\u7ec4\u7ec7\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -9287,7 +9287,7 @@
             }
           },
           {
-            "name": "org*",
+            "name": "org",
             "in": "path",
             "description": "\u7ec4\u7ec7\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -9359,11 +9359,11 @@
                     "type": "string",
                     "description": "\u7528\u6237\u6388\u6743\u7801"
                   },
-                  "name*": {
+                  "name": {
                     "type": "string",
                     "description": "\u7ec4\u7ec7\u540d\u79f0"
                   },
-                  "org*": {
+                  "org": {
                     "type": "string",
                     "description": "\u7ec4\u7ec7\u7684\u8def\u5f84(path/login)"
                   },
@@ -9443,7 +9443,7 @@
             }
           },
           {
-            "name": "username*",
+            "name": "username",
             "in": "path",
             "description": "\u7528\u6237\u540d(username/login)",
             "required": true,
@@ -9533,7 +9533,7 @@
             }
           },
           {
-            "name": "org*",
+            "name": "org",
             "in": "path",
             "description": "\u7ec4\u7ec7\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -9794,7 +9794,7 @@
                     "type": "string",
                     "description": "\u7528\u6237\u6388\u6743\u7801"
                   },
-                  "text*": {
+                  "text": {
                     "type": "string",
                     "description": "Markdown \u6587\u672c"
                   }
@@ -9833,7 +9833,7 @@
             }
           },
           {
-            "name": "license*",
+            "name": "license",
             "in": "path",
             "description": "\u534f\u8bae\u540d\u79f0",
             "required": true,
@@ -9869,7 +9869,7 @@
             }
           },
           {
-            "name": "license*",
+            "name": "license",
             "in": "path",
             "description": "\u534f\u8bae\u540d\u79f0",
             "required": true,
@@ -9932,7 +9932,7 @@
             }
           },
           {
-            "name": "name*",
+            "name": "name",
             "in": "path",
             "description": ".gitignore \u6a21\u677f\u540d",
             "required": true,
@@ -9968,7 +9968,7 @@
             }
           },
           {
-            "name": "name*",
+            "name": "name",
             "in": "path",
             "description": ".gitignore \u6a21\u677f\u540d",
             "required": true,
@@ -10031,7 +10031,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -10040,7 +10040,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -10076,7 +10076,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -10085,7 +10085,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -10094,7 +10094,7 @@
             }
           },
           {
-            "name": "number*",
+            "name": "number",
             "in": "path",
             "description": "\u91cc\u7a0b\u7891\u5e8f\u53f7(id)",
             "required": true,
@@ -10172,7 +10172,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -10181,7 +10181,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -10304,7 +10304,7 @@
             }
           },
           {
-            "name": "enterprise*",
+            "name": "enterprise",
             "in": "path",
             "description": "\u4f01\u4e1a\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -10313,7 +10313,7 @@
             }
           },
           {
-            "name": "name*",
+            "name": "name",
             "in": "path",
             "description": "\u6807\u7b7e\u540d\u79f0",
             "required": true,
@@ -10376,7 +10376,7 @@
             }
           },
           {
-            "name": "enterprise*",
+            "name": "enterprise",
             "in": "path",
             "description": "\u4f01\u4e1a\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -10439,7 +10439,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -10448,7 +10448,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -10499,7 +10499,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -10508,7 +10508,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -10517,7 +10517,7 @@
             }
           },
           {
-            "name": "number*",
+            "name": "number",
             "in": "path",
             "description": "Issue \u7f16\u53f7(\u533a\u5206\u5927\u5c0f\u5199\uff0c\u65e0\u9700\u6dfb\u52a0 # \u53f7)",
             "required": true,
@@ -10526,7 +10526,7 @@
             }
           },
           {
-            "name": "name*",
+            "name": "name",
             "in": "path",
             "description": "\u6807\u7b7e\u540d\u79f0(\u6279\u91cf\u5220\u9664\u7528\u82f1\u6587\u9017\u53f7\u5206\u9694\uff0c\u5982: bug,feature)",
             "required": true,
@@ -10562,7 +10562,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -10571,7 +10571,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -10580,7 +10580,7 @@
             }
           },
           {
-            "name": "number*",
+            "name": "number",
             "in": "path",
             "description": "Issue \u7f16\u53f7(\u533a\u5206\u5927\u5c0f\u5199\uff0c\u65e0\u9700\u6dfb\u52a0 # \u53f7)",
             "required": true,
@@ -10634,7 +10634,7 @@
         "summary": "\u66f4\u65b0\u4e00\u4e2a\u4ed3\u5e93\u4efb\u52a1\u6807\u7b7e",
         "parameters": [
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -10643,7 +10643,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -10652,7 +10652,7 @@
             }
           },
           {
-            "name": "original_name*",
+            "name": "original_name",
             "in": "path",
             "description": "\u6807\u7b7e\u539f\u6709\u540d\u79f0",
             "required": true,
@@ -10738,7 +10738,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -10747,7 +10747,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -10756,7 +10756,7 @@
             }
           },
           {
-            "name": "name*",
+            "name": "name",
             "in": "path",
             "description": "\u6807\u7b7e\u540d\u79f0",
             "required": true,
@@ -10819,7 +10819,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -10828,7 +10828,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -10891,7 +10891,7 @@
             }
           },
           {
-            "name": "enterprise*",
+            "name": "enterprise",
             "in": "path",
             "description": "\u4f01\u4e1a\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -10900,7 +10900,7 @@
             }
           },
           {
-            "name": "number*",
+            "name": "number",
             "in": "path",
             "description": "Issue \u7f16\u53f7(\u533a\u5206\u5927\u5c0f\u5199\uff0c\u65e0\u9700\u6dfb\u52a0 # \u53f7)",
             "required": true,
@@ -10981,7 +10981,7 @@
             }
           },
           {
-            "name": "enterprise*",
+            "name": "enterprise",
             "in": "path",
             "description": "\u4f01\u4e1a\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -10990,7 +10990,7 @@
             }
           },
           {
-            "name": "number*",
+            "name": "number",
             "in": "path",
             "description": "Issue \u7f16\u53f7(\u533a\u5206\u5927\u5c0f\u5199\uff0c\u65e0\u9700\u6dfb\u52a0 # \u53f7)",
             "required": true,
@@ -11080,7 +11080,7 @@
             }
           },
           {
-            "name": "enterprise*",
+            "name": "enterprise",
             "in": "path",
             "description": "\u4f01\u4e1a\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -11089,7 +11089,7 @@
             }
           },
           {
-            "name": "number*",
+            "name": "number",
             "in": "path",
             "description": "Issue \u7f16\u53f7(\u533a\u5206\u5927\u5c0f\u5199\uff0c\u65e0\u9700\u6dfb\u52a0 # \u53f7)",
             "required": true,
@@ -11239,7 +11239,7 @@
             }
           },
           {
-            "name": "enterprise*",
+            "name": "enterprise",
             "in": "path",
             "description": "\u4f01\u4e1a\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -11248,7 +11248,7 @@
             }
           },
           {
-            "name": "number*",
+            "name": "number",
             "in": "path",
             "description": "Issue \u7f16\u53f7(\u533a\u5206\u5927\u5c0f\u5199\uff0c\u65e0\u9700\u6dfb\u52a0 # \u53f7)",
             "required": true,
@@ -11389,7 +11389,7 @@
             }
           },
           {
-            "name": "enterprise*",
+            "name": "enterprise",
             "in": "path",
             "description": "\u4f01\u4e1a\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -12013,7 +12013,7 @@
             }
           },
           {
-            "name": "org*",
+            "name": "org",
             "in": "path",
             "description": "\u7ec4\u7ec7\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -12394,7 +12394,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -12412,7 +12412,7 @@
             }
           },
           {
-            "name": "number*",
+            "name": "number",
             "in": "path",
             "description": "Issue \u7f16\u53f7(\u533a\u5206\u5927\u5c0f\u5199\uff0c\u65e0\u9700\u6dfb\u52a0 # \u53f7)",
             "required": true,
@@ -12484,7 +12484,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -12502,7 +12502,7 @@
             }
           },
           {
-            "name": "number*",
+            "name": "number",
             "in": "path",
             "description": "Issue \u7f16\u53f7(\u533a\u5206\u5927\u5c0f\u5199\uff0c\u65e0\u9700\u6dfb\u52a0 # \u53f7)",
             "required": true,
@@ -12643,7 +12643,7 @@
         "summary": "\u66f4\u65b0Issue",
         "parameters": [
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -12652,7 +12652,7 @@
             }
           },
           {
-            "name": "number*",
+            "name": "number",
             "in": "path",
             "description": "Issue \u7f16\u53f7(\u533a\u5206\u5927\u5c0f\u5199\uff0c\u65e0\u9700\u6dfb\u52a0 # \u53f7)",
             "required": true,
@@ -12839,7 +12839,7 @@
         "summary": "\u521b\u5efaIssue",
         "parameters": [
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -12862,7 +12862,7 @@
                     "type": "string",
                     "description": "\u4ed3\u5e93\u8def\u5f84(path)"
                   },
-                  "title*": {
+                  "title": {
                     "type": "string",
                     "description": "Issue\u6807\u9898"
                   },
@@ -13038,7 +13038,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -13047,7 +13047,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -13056,7 +13056,7 @@
             }
           },
           {
-            "name": "number*",
+            "name": "number",
             "in": "path",
             "description": "Issue \u7f16\u53f7(\u533a\u5206\u5927\u5c0f\u5199\uff0c\u65e0\u9700\u6dfb\u52a0 # \u53f7)",
             "required": true,
@@ -13197,7 +13197,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -13206,7 +13206,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -13482,7 +13482,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -13491,7 +13491,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -13500,7 +13500,7 @@
             }
           },
           {
-            "name": "id*",
+            "name": "id",
             "in": "path",
             "description": "\u8bc4\u8bba\u7684ID",
             "required": true,
@@ -13572,7 +13572,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -13581,7 +13581,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -13590,7 +13590,7 @@
             }
           },
           {
-            "name": "number*",
+            "name": "number",
             "in": "path",
             "description": "Issue \u7f16\u53f7(\u533a\u5206\u5927\u5c0f\u5199\uff0c\u65e0\u9700\u6dfb\u52a0 # \u53f7)",
             "required": true,
@@ -13698,7 +13698,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -13707,7 +13707,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -13824,7 +13824,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -13833,7 +13833,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -13887,7 +13887,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -13896,7 +13896,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -13905,7 +13905,7 @@
             }
           },
           {
-            "name": "sha*",
+            "name": "sha",
             "in": "path",
             "description": "\u53ef\u4ee5\u662f\u5206\u652f\u540d(\u5982master)\u3001Commit\u6216\u8005\u76ee\u5f55Tree\u7684SHA\u503c",
             "required": true,
@@ -13968,7 +13968,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -13977,7 +13977,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -13986,7 +13986,7 @@
             }
           },
           {
-            "name": "sha*",
+            "name": "sha",
             "in": "path",
             "description": "\u6587\u4ef6\u7684 Blob SHA\uff0c\u53ef\u901a\u8fc7 [\u83b7\u53d6\u4ed3\u5e93\u5177\u4f53\u8def\u5f84\u4e0b\u7684\u5185\u5bb9] API \u83b7\u53d6",
             "required": true,
@@ -14034,7 +14034,7 @@
         "summary": "Fork\u4ee3\u7801\u7247\u6bb5",
         "parameters": [
           {
-            "name": "id*",
+            "name": "id",
             "in": "path",
             "description": "\u4ee3\u7801\u7247\u6bb5\u7684ID",
             "required": true,
@@ -14076,7 +14076,7 @@
         "summary": "Star\u4ee3\u7801\u7247\u6bb5",
         "parameters": [
           {
-            "name": "id*",
+            "name": "id",
             "in": "path",
             "description": "\u4ee3\u7801\u7247\u6bb5\u7684ID",
             "required": true,
@@ -14127,7 +14127,7 @@
             }
           },
           {
-            "name": "id*",
+            "name": "id",
             "in": "path",
             "description": "\u4ee3\u7801\u7247\u6bb5\u7684ID",
             "required": true,
@@ -14226,7 +14226,7 @@
             }
           },
           {
-            "name": "id*",
+            "name": "id",
             "in": "path",
             "description": "\u4ee3\u7801\u7247\u6bb5\u7684ID",
             "required": true,
@@ -14325,7 +14325,7 @@
             }
           },
           {
-            "name": "gist_id*",
+            "name": "gist_id",
             "in": "path",
             "description": "\u4ee3\u7801\u7247\u6bb5\u7684ID",
             "required": true,
@@ -14334,7 +14334,7 @@
             }
           },
           {
-            "name": "id*",
+            "name": "id",
             "in": "path",
             "description": "\u8bc4\u8bba\u7684ID",
             "required": true,
@@ -14388,7 +14388,7 @@
             }
           },
           {
-            "name": "gist_id*",
+            "name": "gist_id",
             "in": "path",
             "description": "\u4ee3\u7801\u7247\u6bb5\u7684ID",
             "required": true,
@@ -14682,7 +14682,7 @@
             }
           },
           {
-            "name": "enterprise*",
+            "name": "enterprise",
             "in": "path",
             "description": "\u4f01\u4e1a\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -14949,7 +14949,7 @@
             }
           },
           {
-            "name": "enterprise*",
+            "name": "enterprise",
             "in": "path",
             "description": "\u4f01\u4e1a\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -14958,7 +14958,7 @@
             }
           },
           {
-            "name": "username*",
+            "name": "username",
             "in": "path",
             "description": "\u7528\u6237\u540d(username/login)",
             "required": true,
@@ -15012,7 +15012,7 @@
         "summary": "\u65b0\u5efa\u5468\u62a5",
         "parameters": [
           {
-            "name": "enterprise*",
+            "name": "enterprise",
             "in": "path",
             "description": "\u4f01\u4e1a\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -15031,15 +15031,15 @@
                     "type": "string",
                     "description": "\u7528\u6237\u6388\u6743\u7801"
                   },
-                  "year*": {
+                  "year": {
                     "type": "integer",
                     "description": "\u5468\u62a5\u6240\u5c5e\u5e74"
                   },
-                  "content*": {
+                  "content": {
                     "type": "string",
                     "description": "\u5468\u62a5\u5185\u5bb9"
                   },
-                  "week_index*": {
+                  "week_index": {
                     "type": "integer",
                     "description": "\u5468\u62a5\u6240\u5c5e\u5468"
                   },
@@ -15114,7 +15114,7 @@
         "summary": "\u7f16\u8f91\u5468\u62a5",
         "parameters": [
           {
-            "name": "enterprise*",
+            "name": "enterprise",
             "in": "path",
             "description": "\u4f01\u4e1a\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -15123,7 +15123,7 @@
             }
           },
           {
-            "name": "id*",
+            "name": "id",
             "in": "path",
             "description": "\u5468\u62a5ID",
             "required": true,
@@ -15142,7 +15142,7 @@
                     "type": "string",
                     "description": "\u7528\u6237\u6388\u6743\u7801"
                   },
-                  "content*": {
+                  "content": {
                     "type": "string",
                     "description": "\u5468\u62a5\u5185\u5bb9"
                   }
@@ -15220,7 +15220,7 @@
             }
           },
           {
-            "name": "enterprise*",
+            "name": "enterprise",
             "in": "path",
             "description": "\u4f01\u4e1a\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -15229,7 +15229,7 @@
             }
           },
           {
-            "name": "id*",
+            "name": "id",
             "in": "path",
             "description": "\u5468\u62a5ID",
             "required": true,
@@ -15304,7 +15304,7 @@
             }
           },
           {
-            "name": "enterprise*",
+            "name": "enterprise",
             "in": "path",
             "description": "\u4f01\u4e1a\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -15433,7 +15433,7 @@
             }
           },
           {
-            "name": "enterprise*",
+            "name": "enterprise",
             "in": "path",
             "description": "\u4f01\u4e1a\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -15442,7 +15442,7 @@
             }
           },
           {
-            "name": "username*",
+            "name": "username",
             "in": "path",
             "description": "\u7528\u6237\u540d(username/login)",
             "required": true,
@@ -15535,7 +15535,7 @@
             }
           },
           {
-            "name": "enterprise*",
+            "name": "enterprise",
             "in": "path",
             "description": "\u4f01\u4e1a\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -15544,7 +15544,7 @@
             }
           },
           {
-            "name": "report_id*",
+            "name": "report_id",
             "in": "path",
             "description": "\u5468\u62a5ID",
             "required": true,
@@ -15553,7 +15553,7 @@
             }
           },
           {
-            "name": "id*",
+            "name": "id",
             "in": "path",
             "description": "\u8bc4\u8bbaID",
             "required": true,
@@ -15580,7 +15580,7 @@
         "summary": "\u8bc4\u8bba\u5468\u62a5",
         "parameters": [
           {
-            "name": "enterprise*",
+            "name": "enterprise",
             "in": "path",
             "description": "\u4f01\u4e1a\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -15589,7 +15589,7 @@
             }
           },
           {
-            "name": "id*",
+            "name": "id",
             "in": "path",
             "description": "\u5468\u62a5ID",
             "required": true,
@@ -15608,7 +15608,7 @@
                     "type": "string",
                     "description": "\u7528\u6237\u6388\u6743\u7801"
                   },
-                  "body*": {
+                  "body": {
                     "type": "string",
                     "description": "\u8bc4\u8bba\u7684\u5185\u5bb9"
                   }
@@ -15683,7 +15683,7 @@
             }
           },
           {
-            "name": "enterprise*",
+            "name": "enterprise",
             "in": "path",
             "description": "\u4f01\u4e1a\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -15710,7 +15710,7 @@
             }
           },
           {
-            "name": "id*",
+            "name": "id",
             "in": "path",
             "description": "\u5468\u62a5ID",
             "required": true,
@@ -15782,7 +15782,7 @@
             }
           },
           {
-            "name": "enterprise*",
+            "name": "enterprise",
             "in": "path",
             "description": "\u4f01\u4e1a\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -15791,7 +15791,7 @@
             }
           },
           {
-            "name": "query_type*",
+            "name": "query_type",
             "in": "query",
             "description": "\u67e5\u8be2\u7c7b\u578b\uff1ausername/email",
             "required": true,
@@ -15800,7 +15800,7 @@
             }
           },
           {
-            "name": "query_value*",
+            "name": "query_value",
             "in": "query",
             "description": "\u67e5\u8be2\u503c",
             "required": true,
@@ -15836,7 +15836,7 @@
             }
           },
           {
-            "name": "enterprise*",
+            "name": "enterprise",
             "in": "path",
             "description": "\u4f01\u4e1a\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -15926,7 +15926,7 @@
             }
           },
           {
-            "name": "enterprise*",
+            "name": "enterprise",
             "in": "path",
             "description": "\u4f01\u4e1a\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -16100,7 +16100,7 @@
             }
           },
           {
-            "name": "id*",
+            "name": "id",
             "in": "path",
             "description": "\u79c1\u4fe1\u7684 ID",
             "required": true,
@@ -16256,7 +16256,7 @@
             }
           },
           {
-            "name": "id*",
+            "name": "id",
             "in": "path",
             "description": "\u901a\u77e5\u7684 ID",
             "required": true,
@@ -16496,7 +16496,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -16505,7 +16505,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -16589,7 +16589,7 @@
             }
           },
           {
-            "name": "org*",
+            "name": "org",
             "in": "path",
             "description": "\u7ec4\u7ec7\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -16673,7 +16673,7 @@
             }
           },
           {
-            "name": "username*",
+            "name": "username",
             "in": "path",
             "description": "\u7528\u6237\u540d(username/login)",
             "required": true,
@@ -16700,7 +16700,7 @@
             }
           },
           {
-            "name": "org*",
+            "name": "org",
             "in": "path",
             "description": "\u7ec4\u7ec7\u7684\u8def\u5f84(path/login)",
             "required": true,
@@ -16766,7 +16766,7 @@
             }
           },
           {
-            "name": "username*",
+            "name": "username",
             "in": "path",
             "description": "\u7528\u6237\u540d(username/login)",
             "required": true,
@@ -16850,7 +16850,7 @@
             }
           },
           {
-            "name": "username*",
+            "name": "username",
             "in": "path",
             "description": "\u7528\u6237\u540d(username/login)",
             "required": true,
@@ -16934,7 +16934,7 @@
             }
           },
           {
-            "name": "username*",
+            "name": "username",
             "in": "path",
             "description": "\u7528\u6237\u540d(username/login)",
             "required": true,
@@ -17018,7 +17018,7 @@
             }
           },
           {
-            "name": "username*",
+            "name": "username",
             "in": "path",
             "description": "\u7528\u6237\u540d(username/login)",
             "required": true,
@@ -17102,7 +17102,7 @@
             }
           },
           {
-            "name": "username*",
+            "name": "username",
             "in": "path",
             "description": "\u7528\u6237\u540d(username/login)",
             "required": true,
@@ -17393,7 +17393,7 @@
             }
           },
           {
-            "name": "username*",
+            "name": "username",
             "in": "path",
             "description": "\u7528\u6237\u540d(username/login)",
             "required": true,
@@ -17684,7 +17684,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -17693,7 +17693,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -17729,7 +17729,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -17738,7 +17738,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -18338,7 +18338,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -18347,7 +18347,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -18467,7 +18467,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -18476,7 +18476,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
@@ -18560,7 +18560,7 @@
             }
           },
           {
-            "name": "owner*",
+            "name": "owner",
             "in": "path",
             "description": "\u4ed3\u5e93\u6240\u5c5e\u7a7a\u95f4\u5730\u5740(\u4f01\u4e1a\u3001\u7ec4\u7ec7\u6216\u4e2a\u4eba\u7684\u5730\u5740path)",
             "required": true,
@@ -18569,7 +18569,7 @@
             }
           },
           {
-            "name": "repo*",
+            "name": "repo",
             "in": "path",
             "description": "\u4ed3\u5e93\u8def\u5f84(path)",
             "required": true,
