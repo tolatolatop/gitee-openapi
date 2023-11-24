@@ -7271,6 +7271,15 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
           }
         ],
         "responses": {
@@ -7699,6 +7708,15 @@
             "required": false,
             "schema": {
               "type": "integer"
+            }
+          },
+          {
+            "name": "number",
+            "in": "path",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -9752,9 +9770,6 @@
     },
     "/emojis": {
       "get": {
-        "tags": [
-          null
-        ],
         "summary": "\u5217\u51fa\u53ef\u4f7f\u7528\u7684 Emoji",
         "parameters": [
           {
@@ -9779,9 +9794,6 @@
     },
     "/markdown": {
       "post": {
-        "tags": [
-          null
-        ],
         "summary": "\u6e32\u67d3 Markdown \u6587\u672c",
         "parameters": [],
         "requestBody": {
@@ -9818,9 +9830,6 @@
     },
     "/licenses/{license}/raw": {
       "get": {
-        "tags": [
-          null
-        ],
         "summary": "\u83b7\u53d6\u4e00\u4e2a\u5f00\u6e90\u8bb8\u53ef\u534f\u8bae\u539f\u59cb\u6587\u4ef6",
         "parameters": [
           {
@@ -9854,9 +9863,6 @@
     },
     "/licenses/{license}": {
       "get": {
-        "tags": [
-          null
-        ],
         "summary": "\u83b7\u53d6\u4e00\u4e2a\u5f00\u6e90\u8bb8\u53ef\u534f\u8bae",
         "parameters": [
           {
@@ -9890,9 +9896,6 @@
     },
     "/licenses": {
       "get": {
-        "tags": [
-          null
-        ],
         "summary": "\u5217\u51fa\u53ef\u4f7f\u7528\u7684\u5f00\u6e90\u8bb8\u53ef\u534f\u8bae",
         "parameters": [
           {
@@ -9917,9 +9920,6 @@
     },
     "/gitignore/templates/{name}/raw": {
       "get": {
-        "tags": [
-          null
-        ],
         "summary": "\u83b7\u53d6\u4e00\u4e2a .gitignore \u6a21\u677f\u539f\u59cb\u6587\u4ef6",
         "parameters": [
           {
@@ -9953,9 +9953,6 @@
     },
     "/gitignore/templates/{name}": {
       "get": {
-        "tags": [
-          null
-        ],
         "summary": "\u83b7\u53d6\u4e00\u4e2a .gitignore \u6a21\u677f",
         "parameters": [
           {
@@ -9989,9 +9986,6 @@
     },
     "/gitignore/templates": {
       "get": {
-        "tags": [
-          null
-        ],
         "summary": "\u5217\u51fa\u53ef\u4f7f\u7528\u7684 .gitignore \u6a21\u677f",
         "parameters": [
           {
@@ -14667,9 +14661,6 @@
     },
     "/enterprise/{enterprise}/pull_requests": {
       "get": {
-        "tags": [
-          null
-        ],
         "summary": "\u4f01\u4e1a Pull Request \u5217\u8868",
         "parameters": [
           {
@@ -16043,9 +16034,6 @@
     },
     "/emails": {
       "get": {
-        "tags": [
-          null
-        ],
         "summary": "\u83b7\u53d6\u6388\u6743\u7528\u6237\u7684\u5168\u90e8\u90ae\u7bb1",
         "parameters": [
           {
