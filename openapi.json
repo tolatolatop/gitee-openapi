@@ -20029,6 +20029,41 @@
           }
         }
       }
+    },
+    "securitySchemes": {
+      "gitee_auth": {
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "https://gitee.com/oauth/authorize",
+            "scopes": {
+              "read:user_info": "",
+              "write:user_info": "",
+              "read:projects": "",
+              "write:projects": "",
+              "read:pull_requests": "",
+              "write:pull_requests": "",
+              "read:issues": "",
+              "write:issues": "",
+              "read:notes": "",
+              "write:notes": "",
+              "read:keys": "",
+              "write:keys": "",
+              "read:groups": "",
+              "write:groups": "",
+              "read:gists": "",
+              "write:gists": "",
+              "read:enterprises": "",
+              "write:enterprises": ""
+            }
+          }
+        }
+      },
+      "access_token": {
+        "type": "apiKey",
+        "name": "access_token",
+        "in": "query"
+      }
     }
   }
 }
