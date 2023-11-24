@@ -134,7 +134,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/hooks/{id}/tests": {
@@ -194,7 +199,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/hooks/{id}": {
@@ -290,7 +300,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/hooks": {
@@ -395,7 +410,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/users/{username}/keys": {
@@ -461,7 +481,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/users/{username}/following/{target_user}": {
@@ -506,7 +531,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/users/{username}/following": {
@@ -620,7 +650,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/users/{username}/followers": {
@@ -734,7 +769,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/users/{username}": {
@@ -881,7 +921,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/user/following/{username}": {
@@ -917,7 +962,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/user/namespace": {
@@ -977,7 +1027,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/user/namespaces": {
@@ -1037,7 +1092,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/user/following": {
@@ -1142,7 +1202,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/user/followers": {
@@ -1247,7 +1312,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/user": {
@@ -1370,7 +1440,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/user/keys/{id}": {
@@ -1427,7 +1502,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/user/keys": {
@@ -1493,7 +1573,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/search/users": {
@@ -1658,7 +1743,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/search/issues": {
@@ -1889,7 +1979,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/search/repositories": {
@@ -2207,7 +2302,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/enterprises/{enterprise}/repos": {
@@ -2498,7 +2598,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/orgs/{org}/repos": {
@@ -2780,7 +2885,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/users/{username}/repos": {
@@ -3080,7 +3190,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/user/repos": {
@@ -3398,7 +3513,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/open": {
@@ -3449,7 +3569,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/releases/tags/{tag}": {
@@ -3536,7 +3661,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/releases/latest": {
@@ -3614,7 +3744,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/releases/{id}": {
@@ -3701,7 +3836,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/releases": {
@@ -3806,7 +3946,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/traffic-data": {
@@ -3877,7 +4022,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/baidu_statistic_key": {
@@ -3922,7 +4072,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/forks": {
@@ -4213,7 +4368,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/collaborators/{username}/permission": {
@@ -4330,7 +4490,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/collaborators/{username}": {
@@ -4384,7 +4549,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/collaborators": {
@@ -4510,7 +4680,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/clear": {
@@ -4561,7 +4736,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/tags": {
@@ -4621,7 +4801,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/contributors": {
@@ -4690,7 +4875,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/push_config": {
@@ -4765,7 +4955,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/reviewer": {
@@ -4853,7 +5048,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}": {
@@ -5117,7 +5317,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/pages/builds": {
@@ -5168,7 +5373,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/pages": {
@@ -5213,7 +5423,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/tarball": {
@@ -5267,7 +5482,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/zipball": {
@@ -5321,7 +5541,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/raw/{path}": {
@@ -5384,7 +5609,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/blame/{path}": {
@@ -5459,7 +5689,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/contents/{path}": {
@@ -5563,7 +5798,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/contents(/{path})": {
@@ -5665,7 +5905,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/readme": {
@@ -5758,7 +6003,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/keys/{id}": {
@@ -5833,7 +6083,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/keys/enable/{id}": {
@@ -5893,7 +6148,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/keys/available": {
@@ -5968,7 +6228,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/keys": {
@@ -6052,7 +6317,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/compare/{base}...{head}": {
@@ -6154,7 +6424,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/commits/{sha}": {
@@ -6247,7 +6522,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/commits": {
@@ -6385,7 +6665,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/commits/{sha}/comments": {
@@ -6496,7 +6781,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/comments/{id}": {
@@ -6586,7 +6876,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/commits/{ref}/comments": {
@@ -6694,7 +6989,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/comments": {
@@ -6802,7 +7102,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/branches/setting/new": {
@@ -6905,7 +7210,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/branches/{wildcard}/setting": {
@@ -7016,7 +7326,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/branches/{branch}/protection": {
@@ -7097,7 +7412,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/branches/{branch}": {
@@ -7172,7 +7492,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/branches": {
@@ -7235,7 +7560,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/pulls/comments/{id}": {
@@ -7346,7 +7676,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/pulls/{number}/labels/{name}": {
@@ -7409,7 +7744,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/pulls/{number}/labels": {
@@ -7508,7 +7848,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/pulls/{number}/comments": {
@@ -7655,7 +8000,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/pulls/{number}/issues": {
@@ -7832,7 +8182,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/pulls/{number}/testers": {
@@ -8013,7 +8368,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/pulls/{number}/assignees": {
@@ -8194,7 +8554,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/pulls/{number}/test": {
@@ -8258,7 +8623,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/pulls/{number}/review": {
@@ -8322,7 +8692,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/pulls/{number}/merge": {
@@ -8376,7 +8751,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/pulls/{number}/files": {
@@ -8460,7 +8840,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/pulls/{number}/commits": {
@@ -8544,7 +8929,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/pulls/{number}/operate_logs": {
@@ -8634,7 +9024,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/pulls/{number}": {
@@ -8802,7 +9197,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/pulls": {
@@ -9051,7 +9451,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/orgs/{org}/memberships/{username}": {
@@ -9096,7 +9501,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/orgs/{org}/followers": {
@@ -9162,7 +9572,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/orgs/{org}/members": {
@@ -9285,7 +9700,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/orgs/{org}": {
@@ -9357,7 +9777,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/users/organization": {
@@ -9441,7 +9866,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/users/{username}/orgs": {
@@ -9531,7 +9961,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/user/memberships/orgs/{org}": {
@@ -9594,7 +10029,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/user/memberships/orgs": {
@@ -9675,7 +10115,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/user/orgs": {
@@ -9765,7 +10210,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/emojis": {
@@ -9789,7 +10239,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/markdown": {
@@ -9825,7 +10280,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/licenses/{license}/raw": {
@@ -9858,7 +10318,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/licenses/{license}": {
@@ -9891,7 +10356,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/licenses": {
@@ -9915,7 +10385,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/gitignore/templates/{name}/raw": {
@@ -9948,7 +10423,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/gitignore/templates/{name}": {
@@ -9981,7 +10461,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/gitignore/templates": {
@@ -10005,7 +10490,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/license": {
@@ -10050,7 +10540,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/milestones/{number}": {
@@ -10146,7 +10641,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/milestones": {
@@ -10278,7 +10778,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/enterprises/{enterprise}/labels/{name}": {
@@ -10350,7 +10855,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/enterprises/{enterprise}/labels": {
@@ -10413,7 +10923,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/project_labels": {
@@ -10473,7 +10988,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/issues/{number}/labels/{name}": {
@@ -10536,7 +11056,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/issues/{number}/labels": {
@@ -10617,7 +11142,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/labels/{original_name}": {
@@ -10712,7 +11242,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/labels/{name}": {
@@ -10793,7 +11328,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/labels": {
@@ -10865,7 +11405,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/enterprises/{enterprise}/issues/{number}/labels": {
@@ -10955,7 +11500,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/enterprises/{enterprise}/issues/{number}/comments": {
@@ -11054,7 +11604,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/enterprises/{enterprise}/issues/{number}/pull_requests": {
@@ -11213,7 +11768,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/enterprises/{enterprise}/issues/{number}": {
@@ -11363,7 +11923,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/enterprises/{enterprise}/issues": {
@@ -11639,7 +12204,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/issues": {
@@ -11879,7 +12449,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/orgs/{org}/issues": {
@@ -12128,7 +12703,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/user/issues": {
@@ -12368,7 +12948,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/issues/{number}/operate_logs": {
@@ -12458,7 +13043,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/issues/{number}/pull_requests": {
@@ -12626,7 +13216,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/issues/{number}": {
@@ -12822,7 +13417,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/issues": {
@@ -13012,7 +13612,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/issues/{number}": {
@@ -13171,7 +13776,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/issues": {
@@ -13456,7 +14066,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/issues/comments/{id}": {
@@ -13546,7 +14161,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/issues/{number}/comments": {
@@ -13672,7 +14292,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/issues/comments": {
@@ -13798,7 +14423,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/git/gitee_metrics": {
@@ -13861,7 +14491,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/git/trees/{sha}": {
@@ -13942,7 +14577,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/git/blobs/{sha}": {
@@ -14017,7 +14657,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/gists/{id}/forks": {
@@ -14059,7 +14704,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/gists/{id}/star": {
@@ -14101,7 +14751,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/gists/{id}/commits": {
@@ -14200,7 +14855,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/gists/{id}": {
@@ -14299,7 +14959,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/gists/{gist_id}/comments/{id}": {
@@ -14362,7 +15027,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/gists/{gist_id}/comments": {
@@ -14434,7 +15104,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/gists/starred": {
@@ -14545,7 +15220,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/gists": {
@@ -14656,7 +15336,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/enterprise/{enterprise}/pull_requests": {
@@ -14920,7 +15605,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/enterprises/{enterprise}/members/{username}": {
@@ -14992,7 +15682,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/enterprises/{enterprise}/week_report": {
@@ -15094,7 +15789,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/enterprises/{enterprise}/week_report/{id}": {
@@ -15191,7 +15891,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/enterprises/{enterprise}/week_reports/{id}": {
@@ -15275,7 +15980,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/enterprises/{enterprise}/week_reports": {
@@ -15404,7 +16114,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/enterprises/{enterprise}/users/{username}/week_reports": {
@@ -15506,7 +16221,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/enterprises/{enterprise}/week_reports/{report_id}/comments/{id}": {
@@ -15560,7 +16280,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/enterprises/{enterprise}/week_reports/{id}/comment": {
@@ -15654,7 +16379,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/enterprises/{enterprise}/week_reports/{id}/comments": {
@@ -15753,7 +16483,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/enterprises/{enterprise}/members/search": {
@@ -15807,7 +16542,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/enterprises/{enterprise}/members": {
@@ -15897,7 +16637,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/enterprises/{enterprise}": {
@@ -15954,7 +16699,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/user/enterprises": {
@@ -16029,7 +16779,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/emails": {
@@ -16068,7 +16823,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/notifications/messages/{id}": {
@@ -16131,7 +16891,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/notifications/messages": {
@@ -16224,7 +16989,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/notifications/threads/{id}": {
@@ -16302,7 +17072,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/notifications/threads": {
@@ -16413,7 +17188,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/notifications/count": {
@@ -16464,7 +17244,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/networks/{owner}/{repo}/events": {
@@ -16557,7 +17342,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/orgs/{org}/events": {
@@ -16641,7 +17431,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/users/{username}/events/orgs/{org}": {
@@ -16734,7 +17529,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/users/{username}/events/public": {
@@ -16818,7 +17618,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/users/{username}/events": {
@@ -16902,7 +17707,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/users/{username}/received_events/public": {
@@ -16986,7 +17796,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/users/{username}/received_events": {
@@ -17070,7 +17885,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/users/{username}/subscriptions": {
@@ -17361,7 +18181,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/users/{username}/starred": {
@@ -17652,7 +18477,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/user/subscriptions/{owner}/{repo}": {
@@ -17697,7 +18527,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/user/starred/{owner}/{repo}": {
@@ -17742,7 +18577,12 @@
               "application/json": {}
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/user/subscriptions": {
@@ -18024,7 +18864,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/user/starred": {
@@ -18306,7 +19151,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/notifications": {
@@ -18435,7 +19285,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/events": {
@@ -18528,7 +19383,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     },
     "/repos/{owner}/{repo}/stargazers": {
@@ -18654,7 +19514,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "access_token": []
+          }
+        ]
       }
     }
   },
