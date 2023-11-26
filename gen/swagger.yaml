@@ -18287,6 +18287,34 @@ paths:
         - user
 schemes:
   - https
+securityDefinitions:
+  access_token:
+    in: query
+    name: access_token
+    type: apiKey
+  gitee_auth:
+    authorizationUrl: 'https://gitee.com/oauth/authorize'
+    flow: implicit
+    scopes:
+      'read:enterprises': ''
+      'read:gists': ''
+      'read:groups': ''
+      'read:issues': ''
+      'read:keys': ''
+      'read:notes': ''
+      'read:projects': ''
+      'read:pull_requests': ''
+      'read:user_info': ''
+      'write:enterprises': ''
+      'write:gists': ''
+      'write:groups': ''
+      'write:issues': ''
+      'write:keys': ''
+      'write:notes': ''
+      'write:projects': ''
+      'write:pull_requests': ''
+      'write:user_info': ''
+    type: oauth2
 swagger: '2.0'
 x-components: {}
 
