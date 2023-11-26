@@ -780,7 +780,7 @@ definitions:
     type: object
   scope:
     properties:
-      '':
+      bug:
         type: string
     type: object
   self:
