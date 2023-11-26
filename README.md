@@ -8,6 +8,13 @@
 
 ## Gen
 通过工具将`openapi.json`转换成其他格式
+
+转换为swagger.yaml
 ```shell
-api-spec-converter --from=openapi_3 --to=swagger_2 --syntax=yaml --order=alpha openapi.json > /gen/swagger.yaml
+api-spec-converter --from=openapi_3 --to=swagger_2 --syntax=yaml --order=alpha openapi.json > gen/swagger.yaml
+```
+
+转换为其他sdk
+```shell
+java -jar .jre/swagger-codegen-cli.jar generate -i ./gen/swagger.yaml -l python -DpackageName=pygitee -o gen/pygitee
 ```
