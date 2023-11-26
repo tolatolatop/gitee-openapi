@@ -905,8 +905,8 @@ definitions:
     type: object
 host: gitee.com
 info:
-  description: 列出 watch 了仓库的用户
-  title: getV5ReposOwnerRepoSubscribers
+  description: All api provided by Gitee
+  title: Gitee OpenApi
   version: 1.0.0
 paths:
   /emails:
