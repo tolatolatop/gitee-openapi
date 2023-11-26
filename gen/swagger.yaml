@@ -905,8 +905,8 @@ definitions:
     type: object
 host: gitee.com
 info:
-  description: All api provided by Gitee
-  title: Gitee OpenApi
+  description: 列出 watch 了仓库的用户
+  title: getV5ReposOwnerRepoSubscribers
   version: 1.0.0
 paths:
   /emails:
@@ -934,6 +934,8 @@ paths:
       security:
         - access_token: []
       summary: 获取授权用户的全部邮箱
+      tags:
+        - null
   /emojis:
     get:
       parameters:
@@ -950,6 +952,8 @@ paths:
       security:
         - access_token: []
       summary: 列出可使用的 Emoji
+      tags:
+        - null
   '/enterprise/{enterprise}/pull_requests':
     get:
       parameters:
@@ -1111,6 +1115,8 @@ paths:
       security:
         - access_token: []
       summary: 企业 Pull Request 列表
+      tags:
+        - null
   '/enterprises/{enterprise}':
     get:
       parameters:
@@ -1414,6 +1420,137 @@ paths:
       security:
         - access_token: []
       summary: 获取企业的某个Issue
+      tags:
+        - issue
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: 企业的路径(path/login)
+          in: path
+          name: enterprise
+          required: true
+          type: string
+        - description: 'Issue 编号(区分大小写，无需添加 # 号)'
+          in: path
+          name: number
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              assignee:
+                description: Issue负责人的个人空间地址
+                type: string
+              body:
+                description: Issue描述
+                type: string
+              branch:
+                description: 分支名称，传空串表示取消关联分支
+                type: string
+              collaborators:
+                description: 'Issue协助者的个人空间地址, 以 , 分隔'
+                type: string
+              labels:
+                description: '用逗号分开的标签，名称要求长度在 2-20 之间且非特殊字符。如: bug,performance'
+                type: string
+              milestone:
+                description: 里程碑序号
+                type: integer
+              program:
+                description: 项目ID
+                type: string
+              security_hole:
+                description: 是否是私有issue(默认为false)
+                type: boolean
+              state:
+                description: Issue 状态，open（开启的）、progressing（进行中）、closed（关闭的）
+                type: string
+              title:
+                description: Issue标题
+                type: string
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              assignee:
+                $ref: '#/definitions/assignee'
+              body:
+                type: string
+              body_html:
+                type: string
+              branch:
+                type: string
+              collaborators:
+                $ref: '#/definitions/collaborators'
+              comments:
+                type: integer
+              comments_url:
+                type: string
+              created_at:
+                type: string
+              deadline:
+                type: string
+              depth:
+                type: integer
+              finished_at:
+                type: string
+              html_url:
+                type: string
+              id:
+                type: integer
+              issue_state_detail:
+                $ref: '#/definitions/issue_state_detail'
+              issue_type_detail:
+                $ref: '#/definitions/issue_type_detail'
+              labels:
+                $ref: '#/definitions/labels'
+              labels_url:
+                type: string
+              milestone:
+                $ref: '#/definitions/milestone'
+              number:
+                type: string
+              parent_id:
+                type: integer
+              parent_url:
+                type: string
+              plan_started_at:
+                type: string
+              priority:
+                type: integer
+              program:
+                $ref: '#/definitions/program'
+              repository:
+                $ref: '#/definitions/repository'
+              repository_url:
+                type: string
+              scheduled_time:
+                type: integer
+              security_hole:
+                type: boolean
+              state:
+                type: string
+              title:
+                type: string
+              updated_at:
+                type: string
+              url:
+                type: string
+              user:
+                $ref: '#/definitions/user'
+            type: object
+      security:
+        - access_token: []
+      summary: 更新企业的某个Issue
       tags:
         - issue
   '/enterprises/{enterprise}/issues/{number}/comments':
@@ -1775,6 +1912,45 @@ paths:
       summary: 列出企业的所有成员
       tags:
         - enterprise
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: 企业的路径(path/login)
+          in: path
+          name: enterprise
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              email:
+                description: '要添加邮箱地址，若该邮箱未注册则自动创建帐号。username,email至少填写一个'
+                type: string
+              name:
+                description: 企业成员真实姓名（备注）
+                type: string
+              role:
+                description: '企业角色：member => 普通成员, outsourced => 外包成员, admin => 管理员'
+                type: string
+              username:
+                description: '需要邀请的用户名(username/login)，username,email至少填写一个'
+                type: string
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 添加或邀请企业成员
+      tags:
+        - enterprise
   '/enterprises/{enterprise}/members/search':
     get:
       parameters:
@@ -1851,6 +2027,64 @@ paths:
       security:
         - access_token: []
       summary: 获取企业的一个成员
+      tags:
+        - enterprise
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - description: 企业的路径(path/login)
+          in: path
+          name: enterprise
+          required: true
+          type: string
+        - description: 用户名(username/login)
+          in: path
+          name: username
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              active:
+                description: '是否可访问企业资源，默认:是。（若选否则禁止该用户访问企业资源）'
+                type: boolean
+              name:
+                description: 企业成员真实姓名（备注）
+                type: string
+              role:
+                description: '企业角色：member => 普通成员, outsourced => 外包成员, admin => 管理员'
+                type: string
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              active:
+                type: string
+              enterprise:
+                $ref: '#/definitions/enterprise'
+              outsourced:
+                type: string
+              remark:
+                type: string
+              role:
+                type: string
+              url:
+                type: string
+              user:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 修改企业成员权限或备注
       tags:
         - enterprise
   '/enterprises/{enterprise}/repos':
@@ -2039,6 +2273,222 @@ paths:
       security:
         - access_token: []
       summary: 获取企业的所有仓库
+      tags:
+        - enterprise
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: 企业的路径(path/login)
+          in: path
+          name: enterprise
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              auto_init:
+                description: '值为true时则会用README初始化仓库。默认: 不初始化(false)'
+                type: boolean
+              can_comment:
+                description: 允许用户对仓库进行评论。默认： 允许(true)
+                type: boolean
+              description:
+                description: 仓库描述
+                type: string
+              gitignore_template:
+                description: Git Ignore模版
+                type: string
+              has_issues:
+                description: '允许提Issue与否。默认: 允许(true)'
+                type: boolean
+              has_wiki:
+                description: '提供Wiki与否。默认: 提供(true)'
+                type: boolean
+              homepage:
+                description: '主页(eg: https://gitee.com)'
+                type: string
+              license_template:
+                description: License模版
+                type: string
+              members:
+                description: '用逗号分开的仓库成员。如: member1,member2'
+                type: string
+              name:
+                description: 仓库名称
+                type: string
+              outsourced:
+                description: '值为true值为外包仓库, false值为内部仓库。默认: 内部仓库(false)'
+                type: boolean
+              path:
+                description: 仓库路径
+                type: string
+              private:
+                description: '仓库开源类型。0(私有), 1(外部开源), 2(内部开源)。默认: 0'
+                type: integer
+              project_creator:
+                description: 负责人的username
+                type: string
+            required:
+              - name
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              assignee:
+                $ref: '#/definitions/assignee'
+              assignees_number:
+                type: integer
+              assigner:
+                $ref: '#/definitions/assigner'
+              blobs_url:
+                type: string
+              branches_url:
+                type: string
+              can_comment:
+                type: boolean
+              collaborators_url:
+                type: string
+              comments_url:
+                type: string
+              commits_url:
+                type: string
+              contributors_url:
+                type: string
+              created_at:
+                type: string
+              default_branch:
+                type: string
+              description:
+                type: string
+              enterprise:
+                $ref: '#/definitions/enterprise'
+              fork:
+                type: boolean
+              forks_count:
+                type: integer
+              forks_url:
+                type: string
+              full_name:
+                type: string
+              gvp:
+                type: boolean
+              has_issues:
+                type: boolean
+              has_page:
+                type: boolean
+              has_wiki:
+                type: boolean
+              homepage:
+                type: string
+              hooks_url:
+                type: string
+              html_url:
+                type: string
+              human_name:
+                type: string
+              id:
+                type: integer
+              internal:
+                type: string
+              issue_comment:
+                type: boolean
+              issue_comment_url:
+                type: string
+              issue_template_source:
+                type: string
+              issues_url:
+                type: string
+              keys_url:
+                type: string
+              labels_url:
+                type: string
+              language:
+                type: string
+              license:
+                type: string
+              members:
+                type: object
+              milestones_url:
+                type: string
+              name:
+                type: string
+              namespace:
+                $ref: '#/definitions/namespace'
+              notifications_url:
+                type: string
+              open_issues_count:
+                type: integer
+              outsourced:
+                type: boolean
+              owner:
+                $ref: '#/definitions/owner'
+              paas:
+                type: string
+              parent:
+                $ref: '#/definitions/parent'
+              path:
+                type: string
+              permission:
+                type: object
+              private:
+                type: boolean
+              programs:
+                $ref: '#/definitions/programs'
+              project_creator:
+                type: string
+              project_labels:
+                $ref: '#/definitions/project_labels'
+              public:
+                type: boolean
+              pull_requests_enabled:
+                type: boolean
+              pulls_url:
+                type: string
+              pushed_at:
+                type: string
+              recommend:
+                type: boolean
+              relation:
+                type: string
+              releases_url:
+                type: string
+              ssh_url:
+                type: string
+              stared:
+                type: boolean
+              stargazers_count:
+                type: integer
+              stargazers_url:
+                type: string
+              status:
+                type: string
+              tags_url:
+                type: string
+              testers:
+                $ref: '#/definitions/testers'
+              testers_number:
+                type: integer
+              updated_at:
+                type: string
+              url:
+                type: string
+              watched:
+                type: boolean
+              watchers_count:
+                type: integer
+            type: object
+      security:
+        - access_token: []
+      summary: 创建企业仓库
       tags:
         - enterprise
   '/enterprises/{enterprise}/users/{username}/week_reports':
@@ -2592,6 +3042,83 @@ paths:
       summary: 获取代码片段
       tags:
         - gists
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              description:
+                description: 代码片段描述，1~30个字符
+                type: string
+              files:
+                description: >-
+                  Hash形式的代码片段文件名以及文件内容。如: { "file1.txt": { "content": "String
+                  file contents" } }
+                type: object
+              public:
+                description: '公开/私有，默认: 私有'
+                type: boolean
+            required:
+              - files
+              - description
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              comments:
+                type: string
+              comments_url:
+                type: string
+              commits_url:
+                type: string
+              created_at:
+                type: string
+              description:
+                type: string
+              files:
+                type: string
+              forks:
+                type: string
+              forks_url:
+                type: string
+              git_pull_url:
+                type: string
+              git_push_url:
+                type: string
+              history:
+                type: string
+              html_url:
+                type: string
+              id:
+                type: string
+              owner:
+                type: string
+              public:
+                type: string
+              truncated:
+                type: string
+              updated_at:
+                type: string
+              url:
+                type: string
+              user:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 创建代码片段
+      tags:
+        - gists
   /gists/starred:
     get:
       parameters:
@@ -2706,7 +3233,77 @@ paths:
       summary: 获取代码片段的评论
       tags:
         - comment
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: 代码片段的ID
+          in: path
+          name: gist_id
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              body:
+                description: 评论内容
+                type: string
+            required:
+              - body
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              body:
+                type: string
+              created_at:
+                type: string
+              id:
+                type: string
+              updated_at:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 增加代码片段的评论
+      tags:
+        - comment
   '/gists/{gist_id}/comments/{id}':
+    delete:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 代码片段的ID
+          in: path
+          name: gist_id
+          required: true
+          type: string
+        - description: 评论的ID
+          in: path
+          name: id
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 删除代码片段的评论
+      tags:
+        - comment
     get:
       parameters:
         - description: 用户授权码
@@ -2745,7 +3342,77 @@ paths:
       summary: 获取单条代码片段的评论
       tags:
         - comment
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: 代码片段的ID
+          in: path
+          name: gist_id
+          required: true
+          type: string
+        - description: 评论的ID
+          in: path
+          name: id
+          required: true
+          type: integer
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              body:
+                description: 评论内容
+                type: string
+            required:
+              - body
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              body:
+                type: string
+              created_at:
+                type: string
+              id:
+                type: string
+              updated_at:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 修改代码片段的评论
+      tags:
+        - comment
   '/gists/{id}':
+    delete:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 代码片段的ID
+          in: path
+          name: id
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 删除指定代码片段
+      tags:
+        - gists
     get:
       parameters:
         - description: 用户授权码
@@ -2807,6 +3474,82 @@ paths:
       security:
         - access_token: []
       summary: 获取单条代码片段
+      tags:
+        - gists
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: 代码片段的ID
+          in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              description:
+                description: 代码片段描述，1~30个字符
+                type: string
+              files:
+                description: >-
+                  Hash形式的代码片段文件名以及文件内容。如: { "file1.txt": { "content": "String
+                  file contents" } }
+                type: object
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              comments:
+                type: string
+              comments_url:
+                type: string
+              commits_url:
+                type: string
+              created_at:
+                type: string
+              description:
+                type: string
+              files:
+                type: string
+              forks:
+                type: string
+              forks_url:
+                type: string
+              git_pull_url:
+                type: string
+              git_push_url:
+                type: string
+              history:
+                type: string
+              html_url:
+                type: string
+              id:
+                type: string
+              owner:
+                type: string
+              public:
+                type: string
+              truncated:
+                type: string
+              updated_at:
+                type: string
+              url:
+                type: string
+              user:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 修改代码片段
       tags:
         - gists
   '/gists/{id}/commits':
@@ -2874,6 +3617,51 @@ paths:
       tags:
         - gists
   '/gists/{id}/forks':
+    get:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 代码片段的ID
+          in: path
+          name: id
+          required: true
+          type: string
+        - description: 当前的页码
+          in: query
+          name: page
+          required: false
+          type: integer
+        - description: 每页的数量，最大为 100
+          in: query
+          name: per_page
+          required: false
+          type: integer
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              created_at:
+                type: string
+              id:
+                type: string
+              updated_at:
+                type: string
+              url:
+                type: string
+              user:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 获取 Fork 了指定代码片段的列表
+      tags:
+        - gists
     post:
       consumes:
         - application/json
@@ -2902,6 +3690,50 @@ paths:
       tags:
         - gists
   '/gists/{id}/star':
+    delete:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 代码片段的ID
+          in: path
+          name: id
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 取消Star代码片段
+      tags:
+        - gists
+    get:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 代码片段的ID
+          in: path
+          name: id
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 判断代码片段是否已Star
+      tags:
+        - gists
     put:
       consumes:
         - application/json
@@ -2945,6 +3777,8 @@ paths:
       security:
         - access_token: []
       summary: 列出可使用的 .gitignore 模板
+      tags:
+        - null
   '/gitignore/templates/{name}':
     get:
       parameters:
@@ -2966,6 +3800,8 @@ paths:
       security:
         - access_token: []
       summary: 获取一个 .gitignore 模板
+      tags:
+        - null
   '/gitignore/templates/{name}/raw':
     get:
       parameters:
@@ -2987,6 +3823,8 @@ paths:
       security:
         - access_token: []
       summary: 获取一个 .gitignore 模板原始文件
+      tags:
+        - null
   /issues:
     get:
       parameters:
@@ -3155,6 +3993,8 @@ paths:
       security:
         - access_token: []
       summary: 列出可使用的开源许可协议
+      tags:
+        - null
   '/licenses/{license}':
     get:
       parameters:
@@ -3176,6 +4016,8 @@ paths:
       security:
         - access_token: []
       summary: 获取一个开源许可协议
+      tags:
+        - null
   '/licenses/{license}/raw':
     get:
       parameters:
@@ -3197,6 +4039,8 @@ paths:
       security:
         - access_token: []
       summary: 获取一个开源许可协议原始文件
+      tags:
+        - null
   /markdown:
     post:
       consumes:
@@ -3223,6 +4067,8 @@ paths:
       security:
         - access_token: []
       summary: 渲染 Markdown 文本
+      tags:
+        - null
   '/networks/{owner}/{repo}/events':
     get:
       parameters:
@@ -3367,6 +4213,79 @@ paths:
       summary: 列出授权用户的所有私信
       tags:
         - notifications
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              content:
+                description: 私信内容
+                type: string
+              username:
+                description: 用户名(username/login)
+                type: string
+            required:
+              - username
+              - content
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              content:
+                type: string
+              html_url:
+                type: string
+              id:
+                type: integer
+              sender:
+                $ref: '#/definitions/sender'
+              unread:
+                type: string
+              updated_at:
+                type: string
+              url:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 发送私信给指定用户
+      tags:
+        - notifications
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              ids:
+                description: '指定一组私信 ID，以 , 分隔'
+                type: string
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 标记所有私信为已读
+      tags:
+        - notifications
   '/notifications/messages/{id}':
     get:
       parameters:
@@ -3405,6 +4324,33 @@ paths:
       security:
         - access_token: []
       summary: 获取一条私信
+      tags:
+        - notifications
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: 私信的 ID
+          in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 标记一条私信为已读
       tags:
         - notifications
   /notifications/threads:
@@ -3472,6 +4418,31 @@ paths:
       summary: 列出授权用户的所有通知
       tags:
         - notifications
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              ids:
+                description: '指定一组通知 ID，以 , 分隔'
+                type: string
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 标记所有通知为已读
+      tags:
+        - notifications
   '/notifications/threads/{id}':
     get:
       parameters:
@@ -3522,6 +4493,33 @@ paths:
       summary: 获取一条通知
       tags:
         - notifications
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: 通知的 ID
+          in: path
+          name: id
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 标记一条通知为已读
+      tags:
+        - notifications
   '/orgs/{org}':
     get:
       parameters:
@@ -3566,6 +4564,93 @@ paths:
       security:
         - access_token: []
       summary: 获取一个组织
+      tags:
+        - orgs
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: 组织的路径(path/login)
+          in: path
+          name: org
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              description:
+                description: 组织简介
+                type: string
+              email:
+                description: 组织公开的邮箱地址
+                type: string
+              html_url:
+                description: 组织站点
+                type: string
+              location:
+                description: 组织所在地
+                type: string
+              name:
+                description: 组织名称
+                type: string
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              avatar_url:
+                type: string
+              created_at:
+                type: string
+              description:
+                type: string
+              email:
+                type: string
+              enterprise:
+                type: string
+              events_url:
+                type: string
+              follow_count:
+                type: string
+              html_url:
+                type: string
+              id:
+                type: integer
+              location:
+                type: string
+              login:
+                type: string
+              members:
+                type: string
+              members_url:
+                type: string
+              name:
+                type: string
+              owner:
+                type: string
+              private_repos:
+                type: string
+              public:
+                type: string
+              public_repos:
+                type: string
+              repos_url:
+                type: string
+              type:
+                type: string
+              url:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 更新授权用户所管理的组织资料
       tags:
         - orgs
   '/orgs/{org}/events':
@@ -3922,6 +5007,102 @@ paths:
       summary: 移除授权用户所管理组织中的成员
       tags:
         - orgs
+    get:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 组织的路径(path/login)
+          in: path
+          name: org
+          required: true
+          type: string
+        - description: 用户名(username/login)
+          in: path
+          name: username
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              active:
+                type: string
+              organization:
+                $ref: '#/definitions/organization'
+              organization_url:
+                type: string
+              remark:
+                type: string
+              role:
+                type: string
+              url:
+                type: string
+              user:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 获取授权用户所属组织的一个成员
+      tags:
+        - orgs
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - description: 组织的路径(path/login)
+          in: path
+          name: org
+          required: true
+          type: string
+        - description: 用户名(username/login)
+          in: path
+          name: username
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              role:
+                description: 设置用户在组织的角色
+                type: string
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              active:
+                type: string
+              organization:
+                $ref: '#/definitions/organization'
+              organization_url:
+                type: string
+              remark:
+                type: string
+              role:
+                type: string
+              url:
+                type: string
+              user:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 增加或更新授权用户所管理组织的成员
+      tags:
+        - orgs
   '/orgs/{org}/repos':
     get:
       parameters:
@@ -4103,6 +5284,216 @@ paths:
       security:
         - access_token: []
       summary: 获取一个组织的仓库
+      tags:
+        - orgs
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: 组织的路径(path/login)
+          in: path
+          name: org
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              auto_init:
+                description: '值为true时则会用README初始化仓库。默认: 不初始化(false)'
+                type: boolean
+              can_comment:
+                description: 允许用户对仓库进行评论。默认： 允许(true)
+                type: boolean
+              description:
+                description: 仓库描述
+                type: string
+              gitignore_template:
+                description: Git Ignore模版
+                type: string
+              has_issues:
+                description: '允许提Issue与否。默认: 允许(true)'
+                type: boolean
+              has_wiki:
+                description: '提供Wiki与否。默认: 提供(true)'
+                type: boolean
+              homepage:
+                description: '主页(eg: https://gitee.com)'
+                type: string
+              license_template:
+                description: License模版
+                type: string
+              name:
+                description: 仓库名称
+                type: string
+              path:
+                description: 仓库路径
+                type: string
+              private:
+                description: '仓库公开或私有。默认: 公开(false)，注：与public互斥，以public为主。'
+                type: boolean
+              public:
+                description: '仓库开源类型。0(私有), 1(外部开源), 2(内部开源)，注：与private互斥，以public为主。'
+                type: integer
+            required:
+              - name
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              assignee:
+                $ref: '#/definitions/assignee'
+              assignees_number:
+                type: integer
+              assigner:
+                $ref: '#/definitions/assigner'
+              blobs_url:
+                type: string
+              branches_url:
+                type: string
+              can_comment:
+                type: boolean
+              collaborators_url:
+                type: string
+              comments_url:
+                type: string
+              commits_url:
+                type: string
+              contributors_url:
+                type: string
+              created_at:
+                type: string
+              default_branch:
+                type: string
+              description:
+                type: string
+              enterprise:
+                $ref: '#/definitions/enterprise'
+              fork:
+                type: boolean
+              forks_count:
+                type: integer
+              forks_url:
+                type: string
+              full_name:
+                type: string
+              gvp:
+                type: boolean
+              has_issues:
+                type: boolean
+              has_page:
+                type: boolean
+              has_wiki:
+                type: boolean
+              homepage:
+                type: string
+              hooks_url:
+                type: string
+              html_url:
+                type: string
+              human_name:
+                type: string
+              id:
+                type: integer
+              internal:
+                type: string
+              issue_comment:
+                type: boolean
+              issue_comment_url:
+                type: string
+              issue_template_source:
+                type: string
+              issues_url:
+                type: string
+              keys_url:
+                type: string
+              labels_url:
+                type: string
+              language:
+                type: string
+              license:
+                type: string
+              members:
+                type: object
+              milestones_url:
+                type: string
+              name:
+                type: string
+              namespace:
+                $ref: '#/definitions/namespace'
+              notifications_url:
+                type: string
+              open_issues_count:
+                type: integer
+              outsourced:
+                type: boolean
+              owner:
+                $ref: '#/definitions/owner'
+              paas:
+                type: string
+              parent:
+                $ref: '#/definitions/parent'
+              path:
+                type: string
+              permission:
+                type: object
+              private:
+                type: boolean
+              programs:
+                $ref: '#/definitions/programs'
+              project_creator:
+                type: string
+              project_labels:
+                $ref: '#/definitions/project_labels'
+              public:
+                type: boolean
+              pull_requests_enabled:
+                type: boolean
+              pulls_url:
+                type: string
+              pushed_at:
+                type: string
+              recommend:
+                type: boolean
+              relation:
+                type: string
+              releases_url:
+                type: string
+              ssh_url:
+                type: string
+              stared:
+                type: boolean
+              stargazers_count:
+                type: integer
+              stargazers_url:
+                type: string
+              status:
+                type: string
+              tags_url:
+                type: string
+              testers:
+                $ref: '#/definitions/testers'
+              testers_number:
+                type: integer
+              updated_at:
+                type: string
+              url:
+                type: string
+              watched:
+                type: boolean
+              watchers_count:
+                type: integer
+            type: object
+      security:
+        - access_token: []
+      summary: 创建组织仓库
       tags:
         - orgs
   '/repos/{owner}/issues':
@@ -4530,6 +5921,33 @@ paths:
       tags:
         - issue
   '/repos/{owner}/{repo}':
+    delete:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 删除一个仓库
+      tags:
+        - repo
     get:
       parameters:
         - description: 用户授权码
@@ -4702,7 +6120,272 @@ paths:
       summary: 获取用户的某个仓库
       tags:
         - repo
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              can_comment:
+                description: 允许用户对仓库进行评论。默认： 允许(true)
+                type: boolean
+              default_branch:
+                description: 更新默认分支
+                type: string
+              default_merge_method:
+                description: '选择默认合并 Pull Request 的方式,分别为 merge squash rebase'
+                type: string
+              description:
+                description: 仓库描述
+                type: string
+              has_issues:
+                description: '允许提Issue与否。默认: 允许(true)'
+                type: boolean
+              has_wiki:
+                description: '提供Wiki与否。默认: 提供(true)'
+                type: boolean
+              homepage:
+                description: '主页(eg: https://gitee.com)'
+                type: string
+              issue_comment:
+                description: '允许对“关闭”状态的 Issue 进行评论。默认: 不允许(false)'
+                type: boolean
+              issue_template_source:
+                description: >-
+                  Issue 模版来源 project: 使用仓库 Issue Template 作为模版； enterprise:
+                  使用企业工作项作为模版
+                type: string
+              lightweight_pr_enabled:
+                description: 是否接受轻量级 pull request
+                type: boolean
+              merge_enabled:
+                description: '是否开启 merge 合并方式, 默认为开启'
+                type: boolean
+              name:
+                description: 仓库名称
+                type: string
+              online_edit_enabled:
+                description: 是否允许仓库文件在线编辑
+                type: boolean
+              path:
+                description: 更新仓库路径
+                type: string
+              private:
+                description: 仓库公开或私有。
+                type: boolean
+              pull_requests_enabled:
+                description: 接受 pull request，协作开发
+                type: boolean
+              rebase_enabled:
+                description: '是否开启 rebase 合并方式, 默认为开启'
+                type: boolean
+              security_hole_enabled:
+                description: '这个Issue涉及到安全/隐私问题，提交后不公开此Issue（可见范围：仓库成员, 企业成员）'
+                type: boolean
+              squash_enabled:
+                description: '是否开启 squash 合并方式, 默认为开启'
+                type: boolean
+            required:
+              - name
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              assignee:
+                $ref: '#/definitions/assignee'
+              assignees_number:
+                type: integer
+              assigner:
+                $ref: '#/definitions/assigner'
+              blobs_url:
+                type: string
+              branches_url:
+                type: string
+              can_comment:
+                type: boolean
+              collaborators_url:
+                type: string
+              comments_url:
+                type: string
+              commits_url:
+                type: string
+              contributors_url:
+                type: string
+              created_at:
+                type: string
+              default_branch:
+                type: string
+              description:
+                type: string
+              enterprise:
+                $ref: '#/definitions/enterprise'
+              fork:
+                type: boolean
+              forks_count:
+                type: integer
+              forks_url:
+                type: string
+              full_name:
+                type: string
+              gvp:
+                type: boolean
+              has_issues:
+                type: boolean
+              has_page:
+                type: boolean
+              has_wiki:
+                type: boolean
+              homepage:
+                type: string
+              hooks_url:
+                type: string
+              html_url:
+                type: string
+              human_name:
+                type: string
+              id:
+                type: integer
+              internal:
+                type: string
+              issue_comment:
+                type: boolean
+              issue_comment_url:
+                type: string
+              issue_template_source:
+                type: string
+              issues_url:
+                type: string
+              keys_url:
+                type: string
+              labels_url:
+                type: string
+              language:
+                type: string
+              license:
+                type: string
+              members:
+                type: object
+              milestones_url:
+                type: string
+              name:
+                type: string
+              namespace:
+                $ref: '#/definitions/namespace'
+              notifications_url:
+                type: string
+              open_issues_count:
+                type: integer
+              outsourced:
+                type: boolean
+              owner:
+                $ref: '#/definitions/owner'
+              paas:
+                type: string
+              parent:
+                $ref: '#/definitions/parent'
+              path:
+                type: string
+              permission:
+                type: object
+              private:
+                type: boolean
+              programs:
+                $ref: '#/definitions/programs'
+              project_creator:
+                type: string
+              project_labels:
+                $ref: '#/definitions/project_labels'
+              public:
+                type: boolean
+              pull_requests_enabled:
+                type: boolean
+              pulls_url:
+                type: string
+              pushed_at:
+                type: string
+              recommend:
+                type: boolean
+              relation:
+                type: string
+              releases_url:
+                type: string
+              ssh_url:
+                type: string
+              stared:
+                type: boolean
+              stargazers_count:
+                type: integer
+              stargazers_url:
+                type: string
+              status:
+                type: string
+              tags_url:
+                type: string
+              testers:
+                $ref: '#/definitions/testers'
+              testers_number:
+                type: integer
+              updated_at:
+                type: string
+              url:
+                type: string
+              watched:
+                type: boolean
+              watchers_count:
+                type: integer
+            type: object
+      security:
+        - access_token: []
+      summary: 更新仓库设置
+      tags:
+        - repo
   '/repos/{owner}/{repo}/baidu_statistic_key':
+    delete:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 删除仓库的百度统计 key
+      tags:
+        - repo
     get:
       parameters:
         - description: 用户授权码
@@ -4728,6 +6411,41 @@ paths:
       security:
         - access_token: []
       summary: 获取仓库的百度统计 key
+      tags:
+        - repo
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              key:
+                description: 通过百度统计页面获取的 hm.js? 后面的 key
+                type: string
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 设置/更新仓库的百度统计 key
       tags:
         - repo
   '/repos/{owner}/{repo}/blame/{path}':
@@ -4812,6 +6530,60 @@ paths:
       security:
         - access_token: []
       summary: 获取所有分支
+      tags:
+        - repo
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              branch_name:
+                description: 新创建的分支名称
+                type: string
+              refs:
+                description: '起点名称, 默认：master'
+                type: string
+            required:
+              - refs
+              - branch_name
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              _links:
+                type: string
+              commit:
+                type: string
+              name:
+                type: string
+              protected:
+                type: string
+              protection_url:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 创建分支
       tags:
         - repo
   '/repos/{owner}/{repo}/branches/setting/new':
@@ -4935,6 +6707,38 @@ paths:
       tags:
         - repo
   '/repos/{owner}/{repo}/branches/{branch}/protection':
+    delete:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 分支名称
+          in: path
+          name: branch
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 取消保护分支的设置
+      tags:
+        - repo
     put:
       consumes:
         - application/json
@@ -4986,6 +6790,57 @@ paths:
       tags:
         - repo
   '/repos/{owner}/{repo}/branches/{wildcard}/setting':
+    delete:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 分支/通配符
+          in: path
+          name: wildcard
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              contexts:
+                $ref: '#/definitions/contexts'
+              id:
+                type: string
+              mergers:
+                $ref: '#/definitions/mergers'
+              mode:
+                type: string
+              project_id:
+                type: string
+              pushers:
+                $ref: '#/definitions/pushers'
+              strict:
+                type: boolean
+              wildcard:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 删除保护分支规则
+      tags:
+        - repo
     put:
       consumes:
         - application/json
@@ -5176,6 +7031,38 @@ paths:
       tags:
         - repo
   '/repos/{owner}/{repo}/collaborators/{username}':
+    delete:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 用户名(username/login)
+          in: path
+          name: username
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 移除仓库成员
+      tags:
+        - repo
     get:
       parameters:
         - description: 用户授权码
@@ -5206,6 +7093,89 @@ paths:
       security:
         - access_token: []
       summary: 判断用户是否为仓库成员
+      tags:
+        - repo
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 用户名(username/login)
+          in: path
+          name: username
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              permission:
+                description: '成员权限: 拉代码(pull)，推代码(push)，管理员(admin)。默认: push'
+                type: string
+            required:
+              - permission
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              avatar_url:
+                type: string
+              events_url:
+                type: string
+              followers_url:
+                type: string
+              following_url:
+                type: string
+              gists_url:
+                type: string
+              html_url:
+                type: string
+              id:
+                type: integer
+              login:
+                type: string
+              member_role:
+                type: string
+              name:
+                type: string
+              organizations_url:
+                type: string
+              permissions:
+                type: string
+              received_events_url:
+                type: string
+              remark:
+                type: string
+              repos_url:
+                type: string
+              starred_url:
+                type: string
+              subscriptions_url:
+                type: string
+              type:
+                type: string
+              url:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 添加仓库成员或更新仓库成员权限
       tags:
         - repo
   '/repos/{owner}/{repo}/collaborators/{username}/permission':
@@ -5349,6 +7319,38 @@ paths:
       tags:
         - comment
   '/repos/{owner}/{repo}/comments/{id}':
+    delete:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 评论的ID
+          in: path
+          name: id
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 删除Commit评论
+      tags:
+        - comment
     get:
       parameters:
         - description: 用户授权码
@@ -5402,6 +7404,71 @@ paths:
       security:
         - access_token: []
       summary: 获取仓库的某条Commit评论
+      tags:
+        - comment
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 评论的ID
+          in: path
+          name: id
+          required: true
+          type: integer
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              body:
+                description: 评论的内容
+                type: string
+            required:
+              - body
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              body:
+                type: string
+              body_html:
+                type: string
+              created_at:
+                type: string
+              id:
+                type: string
+              in_reply_to_id:
+                type: string
+              in_reply_to_user:
+                $ref: '#/definitions/in_reply_to_user'
+              source:
+                type: string
+              target:
+                type: string
+              updated_at:
+                type: string
+              user:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 更新Commit评论
       tags:
         - comment
   '/repos/{owner}/{repo}/commits':
@@ -5484,6 +7551,53 @@ paths:
       security:
         - access_token: []
       summary: 仓库的所有提交
+      tags:
+        - repo
+    post:
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              author:
+                type: string
+              comments_url:
+                type: string
+              commit:
+                type: string
+              committer:
+                type: string
+              files:
+                $ref: '#/definitions/files'
+              html_url:
+                type: string
+              parents:
+                type: string
+              sha:
+                type: string
+              stats:
+                type: string
+              truncated:
+                type: boolean
+              url:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 提交多个文件变更
       tags:
         - repo
   '/repos/{owner}/{repo}/commits/{ref}/comments':
@@ -5807,6 +7921,80 @@ paths:
       tags:
         - repo
   '/repos/{owner}/{repo}/contents/{path}':
+    delete:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 文件的路径
+          in: path
+          name: path
+          required: true
+          type: string
+        - description: '文件的 Blob SHA，可通过 [获取仓库具体路径下的内容] API 获取'
+          in: query
+          name: sha
+          required: true
+          type: string
+        - description: 提交信息
+          in: query
+          name: message
+          required: true
+          type: string
+        - description: 分支名称。默认为仓库对默认分支
+          in: query
+          name: branch
+          required: false
+          type: string
+        - description: Committer的名字，默认为当前用户的名字
+          in: query
+          name: 'committer[name]'
+          required: false
+          type: string
+        - description: Committer的邮箱，默认为当前用户的邮箱
+          in: query
+          name: 'committer[email]'
+          required: false
+          type: string
+        - description: Author的名字，默认为当前用户的名字
+          in: query
+          name: 'author[name]'
+          required: false
+          type: string
+        - description: Author的邮箱，默认为当前用户的邮箱
+          in: query
+          name: 'author[email]'
+          required: false
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              commit:
+                $ref: '#/definitions/commit'
+              content:
+                $ref: '#/definitions/content'
+            type: object
+      security:
+        - access_token: []
+      summary: 删除文件
+      tags:
+        - repo
     post:
       consumes:
         - application/json
@@ -5873,6 +8061,78 @@ paths:
       security:
         - access_token: []
       summary: 新建文件
+      tags:
+        - repo
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 文件的路径
+          in: path
+          name: path
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              'author[email]':
+                description: Author的邮箱，默认为当前用户的邮箱
+                type: string
+              'author[name]':
+                description: Author的名字，默认为当前用户的名字
+                type: string
+              branch:
+                description: 分支名称。默认为仓库对默认分支
+                type: string
+              'committer[email]':
+                description: Committer的邮箱，默认为当前用户的邮箱
+                type: string
+              'committer[name]':
+                description: Committer的名字，默认为当前用户的名字
+                type: string
+              content:
+                description: '文件内容, 要用 base64 编码'
+                type: string
+              message:
+                description: 提交信息
+                type: string
+              sha:
+                description: '文件的 Blob SHA，可通过 [获取仓库具体路径下的内容] API 获取'
+                type: string
+            required:
+              - content
+              - sha
+              - message
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              commit:
+                $ref: '#/definitions/commit'
+              content:
+                $ref: '#/definitions/content'
+            type: object
+      security:
+        - access_token: []
+      summary: 更新文件
       tags:
         - repo
   '/repos/{owner}/{repo}/contributors':
@@ -6162,6 +8422,192 @@ paths:
       summary: 查看仓库的Forks
       tags:
         - repo
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              name:
+                description: 'fork 后仓库名称。默认: 源仓库名称'
+                type: string
+              organization:
+                description: 组织空间地址，不填写默认Fork到用户个人空间地址
+                type: string
+              path:
+                description: 'fork 后仓库地址。默认: 源仓库地址'
+                type: string
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              assignee:
+                $ref: '#/definitions/assignee'
+              assignees_number:
+                type: integer
+              assigner:
+                $ref: '#/definitions/assigner'
+              blobs_url:
+                type: string
+              branches_url:
+                type: string
+              can_comment:
+                type: boolean
+              collaborators_url:
+                type: string
+              comments_url:
+                type: string
+              commits_url:
+                type: string
+              contributors_url:
+                type: string
+              created_at:
+                type: string
+              default_branch:
+                type: string
+              description:
+                type: string
+              enterprise:
+                $ref: '#/definitions/enterprise'
+              fork:
+                type: boolean
+              forks_count:
+                type: integer
+              forks_url:
+                type: string
+              full_name:
+                type: string
+              gvp:
+                type: boolean
+              has_issues:
+                type: boolean
+              has_page:
+                type: boolean
+              has_wiki:
+                type: boolean
+              homepage:
+                type: string
+              hooks_url:
+                type: string
+              html_url:
+                type: string
+              human_name:
+                type: string
+              id:
+                type: integer
+              internal:
+                type: string
+              issue_comment:
+                type: boolean
+              issue_comment_url:
+                type: string
+              issue_template_source:
+                type: string
+              issues_url:
+                type: string
+              keys_url:
+                type: string
+              labels_url:
+                type: string
+              language:
+                type: string
+              license:
+                type: string
+              members:
+                type: object
+              milestones_url:
+                type: string
+              name:
+                type: string
+              namespace:
+                $ref: '#/definitions/namespace'
+              notifications_url:
+                type: string
+              open_issues_count:
+                type: integer
+              outsourced:
+                type: boolean
+              owner:
+                $ref: '#/definitions/owner'
+              paas:
+                type: string
+              parent:
+                $ref: '#/definitions/parent'
+              path:
+                type: string
+              permission:
+                type: object
+              private:
+                type: boolean
+              programs:
+                $ref: '#/definitions/programs'
+              project_creator:
+                type: string
+              project_labels:
+                $ref: '#/definitions/project_labels'
+              public:
+                type: boolean
+              pull_requests_enabled:
+                type: boolean
+              pulls_url:
+                type: string
+              pushed_at:
+                type: string
+              recommend:
+                type: boolean
+              relation:
+                type: string
+              releases_url:
+                type: string
+              ssh_url:
+                type: string
+              stared:
+                type: boolean
+              stargazers_count:
+                type: integer
+              stargazers_url:
+                type: string
+              status:
+                type: string
+              tags_url:
+                type: string
+              testers:
+                $ref: '#/definitions/testers'
+              testers_number:
+                type: integer
+              updated_at:
+                type: string
+              url:
+                type: string
+              watched:
+                type: boolean
+              watchers_count:
+                type: integer
+            type: object
+      security:
+        - access_token: []
+      summary: Fork一个仓库
+      tags:
+        - repo
   '/repos/{owner}/{repo}/git/blobs/{sha}':
     get:
       parameters:
@@ -6361,7 +8807,124 @@ paths:
       summary: 列出仓库的WebHooks
       tags:
         - hook
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              encryption_type:
+                description: '加密类型: 0: 密码, 1: 签名密钥'
+                type: integer
+              issues_events:
+                description: 创建/关闭Issue
+                type: boolean
+              merge_requests_events:
+                description: 合并请求和合并后
+                type: boolean
+              note_events:
+                description: 评论了Issue/代码等等
+                type: boolean
+              password:
+                description: 请求URL时会带上该密码，防止URL被恶意请求
+                type: string
+              push_events:
+                description: Push代码到仓库
+                type: boolean
+              tag_push_events:
+                description: 提交Tag到仓库
+                type: boolean
+              url:
+                description: 远程HTTP URL
+                type: string
+            required:
+              - url
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              created_at:
+                type: string
+              id:
+                type: string
+              issues_events:
+                type: string
+              merge_requests_events:
+                type: string
+              note_events:
+                type: string
+              password:
+                type: string
+              project_id:
+                type: string
+              push_events:
+                type: string
+              result:
+                type: string
+              result_code:
+                type: string
+              tag_push_events:
+                type: string
+              url:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 创建一个仓库WebHook
+      tags:
+        - hook
   '/repos/{owner}/{repo}/hooks/{id}':
+    delete:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: Webhook的ID
+          in: path
+          name: id
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 删除一个仓库WebHook
+      tags:
+        - hook
     get:
       parameters:
         - description: 用户授权码
@@ -6419,6 +8982,96 @@ paths:
       security:
         - access_token: []
       summary: 获取仓库单个WebHook
+      tags:
+        - hook
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: Webhook的ID
+          in: path
+          name: id
+          required: true
+          type: integer
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              encryption_type:
+                description: '加密类型: 0: 密码, 1: 签名密钥'
+                type: integer
+              issues_events:
+                description: 创建/关闭Issue
+                type: boolean
+              merge_requests_events:
+                description: 合并请求和合并后
+                type: boolean
+              note_events:
+                description: 评论了Issue/代码等等
+                type: boolean
+              password:
+                description: 请求URL时会带上该密码，防止URL被恶意请求
+                type: string
+              push_events:
+                description: Push代码到仓库
+                type: boolean
+              tag_push_events:
+                description: 提交Tag到仓库
+                type: boolean
+              url:
+                description: 远程HTTP URL
+                type: string
+            required:
+              - url
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              created_at:
+                type: string
+              id:
+                type: string
+              issues_events:
+                type: string
+              merge_requests_events:
+                type: string
+              note_events:
+                type: string
+              password:
+                type: string
+              project_id:
+                type: string
+              push_events:
+                type: string
+              result:
+                type: string
+              result_code:
+                type: string
+              tag_push_events:
+                type: string
+              url:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 更新一个仓库WebHook
       tags:
         - hook
   '/repos/{owner}/{repo}/hooks/{id}/tests':
@@ -6715,6 +9368,38 @@ paths:
       tags:
         - comment
   '/repos/{owner}/{repo}/issues/comments/{id}':
+    delete:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 评论的ID
+          in: path
+          name: id
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 删除Issue某条评论
+      tags:
+        - comment
     get:
       parameters:
         - description: 用户授权码
@@ -6768,6 +9453,71 @@ paths:
       security:
         - access_token: []
       summary: 获取仓库Issue某条评论
+      tags:
+        - comment
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 评论的ID
+          in: path
+          name: id
+          required: true
+          type: integer
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              body:
+                description: The contents of the comment.
+                type: string
+            required:
+              - body
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              body:
+                type: string
+              body_html:
+                type: string
+              created_at:
+                type: string
+              id:
+                type: string
+              in_reply_to_id:
+                type: string
+              in_reply_to_user:
+                $ref: '#/definitions/in_reply_to_user'
+              source:
+                type: string
+              target:
+                type: string
+              updated_at:
+                type: string
+              user:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 更新Issue某条评论
       tags:
         - comment
   '/repos/{owner}/{repo}/issues/{number}':
@@ -6950,7 +9700,104 @@ paths:
       summary: 获取仓库某个Issue所有的评论
       tags:
         - comment
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 'Issue 编号(区分大小写，无需添加 # 号)'
+          in: path
+          name: number
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              body:
+                description: The contents of the comment.
+                type: string
+            required:
+              - body
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              body:
+                type: string
+              body_html:
+                type: string
+              created_at:
+                type: string
+              id:
+                type: string
+              in_reply_to_id:
+                type: string
+              in_reply_to_user:
+                $ref: '#/definitions/in_reply_to_user'
+              source:
+                type: string
+              target:
+                type: string
+              updated_at:
+                type: string
+              user:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 创建某个Issue评论
+      tags:
+        - comment
   '/repos/{owner}/{repo}/issues/{number}/labels':
+    delete:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 'Issue 编号(区分大小写，无需添加 # 号)'
+          in: path
+          name: number
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 删除Issue所有标签
+      tags:
+        - issue
     get:
       parameters:
         - description: 用户授权码
@@ -6998,6 +9845,126 @@ paths:
       security:
         - access_token: []
       summary: 获取仓库任务的所有标签
+      tags:
+        - issue
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 'Issue 编号(区分大小写，无需添加 # 号)'
+          in: path
+          name: number
+          required: true
+          type: string
+        - description: '标签名数组，如: ["feat", "bug"]'
+          in: body
+          name: body
+          required: true
+          schema:
+            type: array
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              color:
+                type: string
+              created_at:
+                type: string
+              id:
+                type: integer
+              name:
+                type: string
+              repository_id:
+                type: integer
+              updated_at:
+                type: string
+              url:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 创建Issue标签
+      tags:
+        - issue
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 'Issue 编号(区分大小写，无需添加 # 号)'
+          in: path
+          name: number
+          required: true
+          type: string
+        - description: '标签名数组，如: ["feat", "bug"]'
+          in: body
+          name: body
+          required: true
+          schema:
+            type: array
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              color:
+                type: string
+              created_at:
+                type: string
+              id:
+                type: integer
+              name:
+                type: string
+              repository_id:
+                type: integer
+              updated_at:
+                type: string
+              url:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 替换Issue所有标签
       tags:
         - issue
   '/repos/{owner}/{repo}/issues/{number}/labels/{name}':
@@ -7089,6 +10056,60 @@ paths:
       summary: 获取仓库已部署的公钥
       tags:
         - repo
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              key:
+                description: 公钥内容
+                type: string
+              title:
+                description: 公钥名称
+                type: string
+            required:
+              - key
+              - title
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              created_at:
+                type: string
+              id:
+                type: string
+              key:
+                type: string
+              title:
+                type: string
+              url:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 为仓库添加公钥
+      tags:
+        - repo
   '/repos/{owner}/{repo}/keys/available':
     get:
       parameters:
@@ -7135,6 +10156,38 @@ paths:
       tags:
         - repo
   '/repos/{owner}/{repo}/keys/enable/{id}':
+    delete:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 公钥 ID
+          in: path
+          name: id
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 停用仓库公钥
+      tags:
+        - repo
     put:
       consumes:
         - application/json
@@ -7173,6 +10226,38 @@ paths:
       tags:
         - repo
   '/repos/{owner}/{repo}/keys/{id}':
+    delete:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 公钥 ID
+          in: path
+          name: id
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 删除一个仓库公钥
+      tags:
+        - repo
     get:
       parameters:
         - description: 用户授权码
@@ -7263,7 +10348,97 @@ paths:
       summary: 获取仓库所有任务标签
       tags:
         - repo
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              color:
+                description: '标签颜色。为6位的数字，如: 000000'
+                type: string
+              name:
+                description: 标签名称
+                type: string
+            required:
+              - name
+              - color
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              color:
+                type: string
+              created_at:
+                type: string
+              id:
+                type: integer
+              name:
+                type: string
+              repository_id:
+                type: integer
+              updated_at:
+                type: string
+              url:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 创建仓库任务标签
+      tags:
+        - repo
   '/repos/{owner}/{repo}/labels/{name}':
+    delete:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 标签名称
+          in: path
+          name: name
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 删除一个仓库任务标签
+      tags:
+        - repo
     get:
       parameters:
         - description: 用户授权码
@@ -7482,7 +10657,113 @@ paths:
       summary: 获取仓库所有里程碑
       tags:
         - repo
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              description:
+                description: 里程碑具体描述
+                type: string
+              due_on:
+                description: 里程碑的截止日期
+                type: string
+              state:
+                description: '里程碑状态: open, closed, all。默认: open'
+                type: string
+              title:
+                description: 里程碑标题
+                type: string
+            required:
+              - title
+              - due_on
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              closed_issues:
+                type: integer
+              created_at:
+                type: string
+              description:
+                type: string
+              due_on:
+                type: string
+              html_url:
+                type: string
+              number:
+                type: integer
+              open_issues:
+                type: integer
+              repository_id:
+                type: integer
+              state:
+                type: string
+              title:
+                type: string
+              updated_at:
+                type: string
+              url:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 创建仓库里程碑
+      tags:
+        - repo
   '/repos/{owner}/{repo}/milestones/{number}':
+    delete:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 里程碑序号(id)
+          in: path
+          name: number
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 删除仓库单个里程碑
+      tags:
+        - repo
     get:
       parameters:
         - description: 用户授权码
@@ -7540,6 +10821,85 @@ paths:
       security:
         - access_token: []
       summary: 获取仓库单个里程碑
+      tags:
+        - repo
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 里程碑序号(id)
+          in: path
+          name: number
+          required: true
+          type: integer
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              description:
+                description: 里程碑具体描述
+                type: string
+              due_on:
+                description: 里程碑的截止日期
+                type: string
+              state:
+                description: '里程碑状态: open, closed, all。默认: open'
+                type: string
+              title:
+                description: 里程碑标题
+                type: string
+            required:
+              - title
+              - due_on
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              closed_issues:
+                type: integer
+              created_at:
+                type: string
+              description:
+                type: string
+              due_on:
+                type: string
+              html_url:
+                type: string
+              number:
+                type: integer
+              open_issues:
+                type: integer
+              repository_id:
+                type: integer
+              state:
+                type: string
+              title:
+                type: string
+              updated_at:
+                type: string
+              url:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 更新仓库里程碑
       tags:
         - repo
   '/repos/{owner}/{repo}/notifications':
@@ -7617,6 +10977,41 @@ paths:
       summary: 列出一个仓库里的通知
       tags:
         - notifications
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              ids:
+                description: '指定一组通知 ID，以 , 分隔'
+                type: string
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 标记一个仓库里的通知为已读
+      tags:
+        - notifications
   '/repos/{owner}/{repo}/open':
     post:
       consumes:
@@ -7678,6 +11073,49 @@ paths:
       summary: 获取Pages信息
       tags:
         - repo
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              domain:
+                description: 自定义域名
+                type: string
+              ssl_certificate_crt:
+                description: 证书文件内容（需进行BASE64编码）
+                type: string
+              ssl_certificate_key:
+                description: 私钥文件内容（需进行BASE64编码）
+                type: string
+            required:
+              - domain
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 上传设置 Pages SSL 证书和域名
+      tags:
+        - repo
   '/repos/{owner}/{repo}/pages/builds':
     post:
       consumes:
@@ -7712,6 +11150,39 @@ paths:
       tags:
         - repo
   '/repos/{owner}/{repo}/project_labels':
+    delete:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: '标签名数组，如: ["feat", "bug"]'
+          in: body
+          name: body
+          required: true
+          schema:
+            type: array
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 删除仓库标签
+      tags:
+        - repo
     get:
       parameters:
         - description: 用户授权码
@@ -7746,6 +11217,100 @@ paths:
       security:
         - access_token: []
       summary: 获取仓库所有标签
+      tags:
+        - repo
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: '标签名数组，如: ["feat", "bug"]'
+          in: body
+          name: body
+          required: true
+          schema:
+            type: array
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              id:
+                type: integer
+              ident:
+                type: string
+              name:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 添加仓库标签
+      tags:
+        - repo
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: '标签名数组，如: ["feat", "bug"]'
+          in: body
+          name: body
+          required: true
+          schema:
+            type: array
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              id:
+                type: integer
+              ident:
+                type: string
+              name:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 替换所有仓库标签
       tags:
         - repo
   '/repos/{owner}/{repo}/pulls':
@@ -7901,7 +11466,202 @@ paths:
       summary: 获取Pull Request列表
       tags:
         - repo
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              assignees:
+                description: >-
+                  可选。审查人员username，可多个，半角逗号分隔，如：(username1,username2), 注意:
+                  当仓库代码审查设置中已设置【指派审查人员】则此选项无效
+                type: string
+              assignees_number:
+                description: 可选。最少审查人数
+                type: integer
+              base:
+                description: 必填。Pull Request 提交目标分支的名称
+                type: string
+              body:
+                description: 可选。Pull Request 内容
+                type: string
+              close_related_issue:
+                description: 可选，合并后是否关闭关联的 Issue，默认根据仓库配置设置
+                type: boolean
+              draft:
+                description: 是否设置为草稿
+                type: boolean
+              head:
+                description: '必填。Pull Request 提交的源分支。格式：branch 或者：username:branch'
+                type: string
+              issue:
+                description: 可选。Pull Request的标题和内容可以根据指定的Issue Id自动填充
+                type: string
+              labels:
+                description: '用逗号分开的标签，名称要求长度在 2-20 之间且非特殊字符。如: bug,performance'
+                type: string
+              milestone_number:
+                description: 可选。里程碑序号(id)
+                type: integer
+              prune_source_branch:
+                description: 可选。合并PR后是否删除源分支，默认false（不删除）
+                type: boolean
+              ref_pull_request_numbers:
+                description: '可选。依赖的当前仓库下的PR编号，置空则清空依赖的PR。如：17,18,19'
+                type: string
+              squash:
+                description: 接受 Pull Request 时使用扁平化（Squash）合并
+                type: boolean
+              testers:
+                description: >-
+                  可选。测试人员username，可多个，半角逗号分隔，如：(username1,username2), 注意:
+                  当仓库代码审查设置中已设置【指派测试人员】则此选项无效
+                type: string
+              testers_number:
+                description: 可选。最少测试人数
+                type: integer
+              title:
+                description: 必填。Pull Request 标题
+                type: string
+            required:
+              - title
+              - head
+              - base
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              _links:
+                type: string
+              api_reviewers:
+                $ref: '#/definitions/api_reviewers'
+              api_reviewers_number:
+                type: string
+              assignees:
+                $ref: '#/definitions/assignees'
+              assignees_number:
+                type: string
+              base:
+                type: string
+              body:
+                type: string
+              body_html:
+                type: string
+              can_merge_check:
+                type: string
+              closed_at:
+                type: string
+              comments_url:
+                type: string
+              commits_url:
+                type: string
+              created_at:
+                type: string
+              diff_url:
+                type: string
+              draft:
+                type: string
+              head:
+                type: string
+              html_url:
+                type: string
+              id:
+                type: string
+              issue_url:
+                type: string
+              labels:
+                $ref: '#/definitions/labels'
+              locked:
+                type: string
+              mergeable:
+                type: string
+              merged_at:
+                type: string
+              milestone:
+                $ref: '#/definitions/milestone'
+              number:
+                type: string
+              patch_url:
+                type: string
+              ref_pull_requests:
+                $ref: '#/definitions/ref_pull_requests'
+              review_comment_url:
+                type: string
+              review_comments_url:
+                type: string
+              state:
+                type: string
+              testers:
+                $ref: '#/definitions/testers'
+              testers_number:
+                type: string
+              title:
+                type: string
+              updated_at:
+                type: string
+              url:
+                type: string
+              user:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 创建Pull Request
+      tags:
+        - repo
   '/repos/{owner}/{repo}/pulls/comments/{id}':
+    delete:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 评论的ID
+          in: path
+          name: id
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 删除评论
+      tags:
+        - comment
     get:
       parameters:
         - description: 用户授权码
@@ -7919,11 +11679,6 @@ paths:
           name: repo
           required: true
           type: string
-        - description: ''
-          in: path
-          name: id
-          required: true
-          type: integer
       produces:
         - application/json
       responses:
@@ -7969,6 +11724,85 @@ paths:
       security:
         - access_token: []
       summary: 获取Pull Request的某个评论
+      tags:
+        - comment
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 评论的ID
+          in: path
+          name: id
+          required: true
+          type: integer
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              body:
+                description: 必填。评论内容
+                type: string
+            required:
+              - body
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              _links:
+                type: string
+              body:
+                type: string
+              comment_type:
+                type: string
+              commit_id:
+                type: string
+              created_at:
+                type: string
+              html_url:
+                type: string
+              id:
+                type: string
+              in_reply_to_id:
+                type: string
+              new_line:
+                type: string
+              original_commit_id:
+                type: string
+              original_position:
+                type: string
+              path:
+                type: string
+              position:
+                type: string
+              pull_request_url:
+                type: string
+              updated_at:
+                type: string
+              url:
+                type: string
+              user:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 编辑评论
       tags:
         - comment
   '/repos/{owner}/{repo}/pulls/{number}':
@@ -8079,7 +11913,376 @@ paths:
       summary: 获取单个Pull Request
       tags:
         - repo
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 第几个PR，即本仓库PR的序数
+          in: path
+          name: number
+          required: true
+          type: integer
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              assignees_number:
+                description: 可选。最少审查人数
+                type: integer
+              body:
+                description: 可选。Pull Request 内容
+                type: string
+              draft:
+                description: 是否设置为草稿
+                type: boolean
+              labels:
+                description: '用逗号分开的标签，名称要求长度在 2-20 之间且非特殊字符。如: bug,performance'
+                type: string
+              milestone_number:
+                description: 可选。里程碑序号(id)
+                type: integer
+              ref_pull_request_numbers:
+                description: '可选。依赖的当前仓库下的PR编号，置空则清空依赖的PR。如：17,18,19'
+                type: string
+              squash:
+                description: 接受 Pull Request 时使用扁平化（Squash）合并
+                type: boolean
+              state:
+                description: 可选。Pull Request 状态
+                type: string
+              testers_number:
+                description: 可选。最少测试人数
+                type: integer
+              title:
+                description: 可选。Pull Request 标题
+                type: string
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              _links:
+                type: string
+              api_reviewers:
+                $ref: '#/definitions/api_reviewers'
+              api_reviewers_number:
+                type: string
+              assignees:
+                $ref: '#/definitions/assignees'
+              assignees_number:
+                type: string
+              base:
+                type: string
+              body:
+                type: string
+              body_html:
+                type: string
+              can_merge_check:
+                type: string
+              closed_at:
+                type: string
+              comments_url:
+                type: string
+              commits_url:
+                type: string
+              created_at:
+                type: string
+              diff_url:
+                type: string
+              draft:
+                type: string
+              head:
+                type: string
+              html_url:
+                type: string
+              id:
+                type: string
+              issue_url:
+                type: string
+              labels:
+                $ref: '#/definitions/labels'
+              locked:
+                type: string
+              mergeable:
+                type: string
+              merged_at:
+                type: string
+              milestone:
+                $ref: '#/definitions/milestone'
+              number:
+                type: string
+              patch_url:
+                type: string
+              ref_pull_requests:
+                $ref: '#/definitions/ref_pull_requests'
+              review_comment_url:
+                type: string
+              review_comments_url:
+                type: string
+              state:
+                type: string
+              testers:
+                $ref: '#/definitions/testers'
+              testers_number:
+                type: string
+              title:
+                type: string
+              updated_at:
+                type: string
+              url:
+                type: string
+              user:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 更新Pull Request信息
+      tags:
+        - repo
   '/repos/{owner}/{repo}/pulls/{number}/assignees':
+    delete:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 第几个PR，即本仓库PR的序数
+          in: path
+          name: number
+          required: true
+          type: integer
+        - description: '用户的个人空间地址, 以 , 分隔'
+          in: query
+          name: assignees
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              _links:
+                type: string
+              api_reviewers:
+                $ref: '#/definitions/api_reviewers'
+              api_reviewers_number:
+                type: string
+              assignees:
+                $ref: '#/definitions/assignees'
+              assignees_number:
+                type: string
+              base:
+                type: string
+              body:
+                type: string
+              body_html:
+                type: string
+              can_merge_check:
+                type: string
+              closed_at:
+                type: string
+              comments_url:
+                type: string
+              commits_url:
+                type: string
+              created_at:
+                type: string
+              diff_url:
+                type: string
+              draft:
+                type: string
+              head:
+                type: string
+              html_url:
+                type: string
+              id:
+                type: string
+              issue_url:
+                type: string
+              labels:
+                $ref: '#/definitions/labels'
+              locked:
+                type: string
+              mergeable:
+                type: string
+              merged_at:
+                type: string
+              milestone:
+                $ref: '#/definitions/milestone'
+              number:
+                type: string
+              patch_url:
+                type: string
+              ref_pull_requests:
+                $ref: '#/definitions/ref_pull_requests'
+              review_comment_url:
+                type: string
+              review_comments_url:
+                type: string
+              state:
+                type: string
+              testers:
+                $ref: '#/definitions/testers'
+              testers_number:
+                type: string
+              title:
+                type: string
+              updated_at:
+                type: string
+              url:
+                type: string
+              user:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 取消用户审查 Pull Request
+      tags:
+        - repo
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 第几个PR，即本仓库PR的序数
+          in: path
+          name: number
+          required: true
+          type: integer
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              reset_all:
+                description: 是否重置所有审查人，默认：false，只对管理员生效
+                type: boolean
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              _links:
+                type: string
+              api_reviewers:
+                $ref: '#/definitions/api_reviewers'
+              api_reviewers_number:
+                type: string
+              assignees:
+                $ref: '#/definitions/assignees'
+              assignees_number:
+                type: string
+              base:
+                type: string
+              body:
+                type: string
+              body_html:
+                type: string
+              can_merge_check:
+                type: string
+              closed_at:
+                type: string
+              comments_url:
+                type: string
+              commits_url:
+                type: string
+              created_at:
+                type: string
+              diff_url:
+                type: string
+              draft:
+                type: string
+              head:
+                type: string
+              html_url:
+                type: string
+              id:
+                type: string
+              issue_url:
+                type: string
+              labels:
+                $ref: '#/definitions/labels'
+              locked:
+                type: string
+              mergeable:
+                type: string
+              merged_at:
+                type: string
+              milestone:
+                $ref: '#/definitions/milestone'
+              number:
+                type: string
+              patch_url:
+                type: string
+              ref_pull_requests:
+                $ref: '#/definitions/ref_pull_requests'
+              review_comment_url:
+                type: string
+              review_comments_url:
+                type: string
+              state:
+                type: string
+              testers:
+                $ref: '#/definitions/testers'
+              testers_number:
+                type: string
+              title:
+                type: string
+              updated_at:
+                type: string
+              url:
+                type: string
+              user:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 重置 Pull Request 审查 的状态
+      tags:
+        - repo
     post:
       consumes:
         - application/json
@@ -8287,6 +12490,94 @@ paths:
       summary: 获取某个Pull Request的所有评论
       tags:
         - comment
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 第几个PR，即本仓库PR的序数
+          in: path
+          name: number
+          required: true
+          type: integer
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              body:
+                description: 必填。评论内容
+                type: string
+              commit_id:
+                description: 可选。PR代码评论的commit id
+                type: string
+              path:
+                description: 可选。PR代码评论的文件名
+                type: string
+              position:
+                description: 可选。PR代码评论diff中的行数
+                type: integer
+            required:
+              - body
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              _links:
+                type: string
+              body:
+                type: string
+              comment_type:
+                type: string
+              commit_id:
+                type: string
+              created_at:
+                type: string
+              html_url:
+                type: string
+              id:
+                type: string
+              in_reply_to_id:
+                type: string
+              new_line:
+                type: string
+              original_commit_id:
+                type: string
+              original_position:
+                type: string
+              path:
+                type: string
+              position:
+                type: string
+              pull_request_url:
+                type: string
+              updated_at:
+                type: string
+              url:
+                type: string
+              user:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 提交Pull Request评论
+      tags:
+        - comment
   '/repos/{owner}/{repo}/pulls/{number}/commits':
     get:
       parameters:
@@ -8419,11 +12710,6 @@ paths:
           name: per_page
           required: false
           type: integer
-        - description: ''
-          in: path
-          name: number
-          required: true
-          type: string
       produces:
         - application/json
       responses:
@@ -8563,6 +12849,126 @@ paths:
       summary: 获取某个 Pull Request 的所有标签
       tags:
         - repo
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 第几个PR，即本仓库PR的序数
+          in: path
+          name: number
+          required: true
+          type: integer
+        - description: '标签名数组，如: ["feat", "bug"]'
+          in: body
+          name: body
+          required: true
+          schema:
+            type: array
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              color:
+                type: string
+              created_at:
+                type: string
+              id:
+                type: integer
+              name:
+                type: string
+              repository_id:
+                type: integer
+              updated_at:
+                type: string
+              url:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 创建 Pull Request 标签
+      tags:
+        - repo
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 第几个PR，即本仓库PR的序数
+          in: path
+          name: number
+          required: true
+          type: integer
+        - description: '标签名数组，如: ["feat", "bug"]'
+          in: body
+          name: body
+          required: true
+          schema:
+            type: array
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              color:
+                type: string
+              created_at:
+                type: string
+              id:
+                type: integer
+              name:
+                type: string
+              repository_id:
+                type: integer
+              updated_at:
+                type: string
+              url:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 替换 Pull Request 所有标签
+      tags:
+        - repo
   '/repos/{owner}/{repo}/pulls/{number}/labels/{name}':
     delete:
       parameters:
@@ -8632,6 +13038,58 @@ paths:
       security:
         - access_token: []
       summary: 判断Pull Request是否已经合并
+      tags:
+        - repo
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 第几个PR，即本仓库PR的序数
+          in: path
+          name: number
+          required: true
+          type: integer
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              description:
+                description: >-
+                  可选。合并描述，默认为 "Merge pull request !{pr_id} from
+                  {author}/{source_branch}"，与页面显示的默认一致。
+                type: string
+              merge_method:
+                description: >-
+                  可选。合并PR的方法，merge（合并所有提交）、squash（扁平化分支合并）和rebase（变基并合并）。默认为merge。
+                type: string
+              prune_source_branch:
+                description: 可选。合并PR后是否删除源分支，默认false（不删除）
+                type: boolean
+              title:
+                description: 可选。合并标题，默认为PR的标题
+                type: string
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 合并Pull Request
       tags:
         - repo
   '/repos/{owner}/{repo}/pulls/{number}/operate_logs':
@@ -8772,6 +13230,233 @@ paths:
       tags:
         - repo
   '/repos/{owner}/{repo}/pulls/{number}/testers':
+    delete:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 第几个PR，即本仓库PR的序数
+          in: path
+          name: number
+          required: true
+          type: integer
+        - description: '用户的个人空间地址, 以 , 分隔'
+          in: query
+          name: testers
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              _links:
+                type: string
+              api_reviewers:
+                $ref: '#/definitions/api_reviewers'
+              api_reviewers_number:
+                type: string
+              assignees:
+                $ref: '#/definitions/assignees'
+              assignees_number:
+                type: string
+              base:
+                type: string
+              body:
+                type: string
+              body_html:
+                type: string
+              can_merge_check:
+                type: string
+              closed_at:
+                type: string
+              comments_url:
+                type: string
+              commits_url:
+                type: string
+              created_at:
+                type: string
+              diff_url:
+                type: string
+              draft:
+                type: string
+              head:
+                type: string
+              html_url:
+                type: string
+              id:
+                type: string
+              issue_url:
+                type: string
+              labels:
+                $ref: '#/definitions/labels'
+              locked:
+                type: string
+              mergeable:
+                type: string
+              merged_at:
+                type: string
+              milestone:
+                $ref: '#/definitions/milestone'
+              number:
+                type: string
+              patch_url:
+                type: string
+              ref_pull_requests:
+                $ref: '#/definitions/ref_pull_requests'
+              review_comment_url:
+                type: string
+              review_comments_url:
+                type: string
+              state:
+                type: string
+              testers:
+                $ref: '#/definitions/testers'
+              testers_number:
+                type: string
+              title:
+                type: string
+              updated_at:
+                type: string
+              url:
+                type: string
+              user:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 取消用户测试 Pull Request
+      tags:
+        - repo
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - description: 第几个PR，即本仓库PR的序数
+          in: path
+          name: number
+          required: true
+          type: integer
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              reset_all:
+                description: 是否重置所有测试人，默认：false，只对管理员生效
+                type: boolean
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              _links:
+                type: string
+              api_reviewers:
+                $ref: '#/definitions/api_reviewers'
+              api_reviewers_number:
+                type: string
+              assignees:
+                $ref: '#/definitions/assignees'
+              assignees_number:
+                type: string
+              base:
+                type: string
+              body:
+                type: string
+              body_html:
+                type: string
+              can_merge_check:
+                type: string
+              closed_at:
+                type: string
+              comments_url:
+                type: string
+              commits_url:
+                type: string
+              created_at:
+                type: string
+              diff_url:
+                type: string
+              draft:
+                type: string
+              head:
+                type: string
+              html_url:
+                type: string
+              id:
+                type: string
+              issue_url:
+                type: string
+              labels:
+                $ref: '#/definitions/labels'
+              locked:
+                type: string
+              mergeable:
+                type: string
+              merged_at:
+                type: string
+              milestone:
+                $ref: '#/definitions/milestone'
+              number:
+                type: string
+              patch_url:
+                type: string
+              ref_pull_requests:
+                $ref: '#/definitions/ref_pull_requests'
+              review_comment_url:
+                type: string
+              review_comments_url:
+                type: string
+              state:
+                type: string
+              testers:
+                $ref: '#/definitions/testers'
+              testers_number:
+                type: string
+              title:
+                type: string
+              updated_at:
+                type: string
+              url:
+                type: string
+              user:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 重置 Pull Request 测试 的状态
+      tags:
+        - repo
     post:
       consumes:
         - application/json
@@ -8936,6 +13621,81 @@ paths:
       summary: 获取仓库推送规则设置
       tags:
         - repo
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              author_email_suffix:
+                description: 指定邮箱域名的后缀
+                type: string
+              commit_message_regex:
+                description: 用于验证提交信息的正则表达式
+                type: string
+              except_manager:
+                description: 仓库管理员不受上述规则限制
+                type: boolean
+              max_file_size:
+                description: 限制单文件大小（MB）
+                type: integer
+              restrict_author_email_suffix:
+                description: 启用只允许指定邮箱域名后缀的提交
+                type: boolean
+              restrict_commit_message:
+                description: 启用提交信息正则表达式校验
+                type: boolean
+              restrict_file_size:
+                description: 启用限制单文件大小
+                type: boolean
+              restrict_push_own_commit:
+                description: 启用只能推送自己的提交（所推送提交中的邮箱必须与推送者所设置的提交邮箱一致）
+                type: boolean
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              author_email_suffix:
+                type: string
+              commit_message_regex:
+                type: string
+              except_manager:
+                type: string
+              max_file_size:
+                type: string
+              restrict_author_email_suffix:
+                type: string
+              restrict_commit_message:
+                type: string
+              restrict_file_size:
+                type: string
+              restrict_push_own_commit:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 修改仓库推送规则设置
+      tags:
+        - repo
   '/repos/{owner}/{repo}/raw/{path}':
     get:
       parameters:
@@ -9096,6 +13856,79 @@ paths:
       summary: 获取仓库的所有Releases
       tags:
         - releases
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              body:
+                description: Release 描述
+                type: string
+              name:
+                description: Release 名称
+                type: string
+              prerelease:
+                description: '是否为预览版本。默认: false（非预览版本）'
+                type: boolean
+              tag_name:
+                description: 'Tag 名称, 提倡以v字母为前缀做为Release名称，例如v1.0或者v2.3.4'
+                type: string
+              target_commitish:
+                description: '分支名称或者commit SHA, 默认是当前默认分支'
+                type: string
+            required:
+              - tag_name
+              - name
+              - body
+              - target_commitish
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              assets:
+                type: string
+              author:
+                type: string
+              body:
+                type: string
+              created_at:
+                type: string
+              id:
+                type: integer
+              name:
+                type: string
+              prerelease:
+                type: string
+              tag_name:
+                type: string
+              target_commitish:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 创建仓库Release
+      tags:
+        - releases
   '/repos/{owner}/{repo}/releases/latest':
     get:
       parameters:
@@ -9200,6 +14033,33 @@ paths:
       tags:
         - releases
   '/repos/{owner}/{repo}/releases/{id}':
+    delete:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 删除仓库Release
+      tags:
+        - releases
     get:
       parameters:
         - description: 用户授权码
@@ -9251,6 +14111,75 @@ paths:
       security:
         - access_token: []
       summary: 获取仓库的单个Releases
+      tags:
+        - releases
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              body:
+                description: Release 描述
+                type: string
+              name:
+                description: Release 名称
+                type: string
+              prerelease:
+                description: '是否为预览版本。默认: false（非预览版本）'
+                type: boolean
+              tag_name:
+                description: 'Tag 名称, 提倡以v字母为前缀做为Release名称，例如v1.0或者v2.3.4'
+                type: string
+            required:
+              - tag_name
+              - name
+              - body
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              assets:
+                type: string
+              author:
+                type: string
+              body:
+                type: string
+              created_at:
+                type: string
+              id:
+                type: integer
+              name:
+                type: string
+              prerelease:
+                type: string
+              tag_name:
+                type: string
+              target_commitish:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 更新仓库Release
       tags:
         - releases
   '/repos/{owner}/{repo}/reviewer':
@@ -9505,6 +14434,59 @@ paths:
       security:
         - access_token: []
       summary: 列出仓库所有的tags
+      tags:
+        - repo
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              refs:
+                description: '起点名称, 默认：master'
+                type: string
+              tag_message:
+                description: 'Tag 描述, 默认为空'
+                type: string
+              tag_name:
+                description: 新创建的标签名称
+                type: string
+            required:
+              - refs
+              - tag_name
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              commit:
+                type: string
+              message:
+                type: string
+              name:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 创建一个仓库的 Tag
       tags:
         - repo
   '/repos/{owner}/{repo}/tarball':
@@ -10151,6 +15133,101 @@ paths:
       summary: 获取授权用户的资料
       tags:
         - user
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              bio:
+                description: 自我介绍
+                type: string
+              blog:
+                description: 微博链接
+                type: string
+              name:
+                description: 昵称
+                type: string
+              weibo:
+                description: 博客站点
+                type: string
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              avatar_url:
+                type: string
+              bio:
+                type: string
+              blog:
+                type: string
+              created_at:
+                type: string
+              events_url:
+                type: string
+              followers:
+                type: string
+              followers_url:
+                type: string
+              following:
+                type: string
+              following_url:
+                type: string
+              gists_url:
+                type: string
+              html_url:
+                type: string
+              id:
+                type: integer
+              login:
+                type: string
+              member_role:
+                type: string
+              name:
+                type: string
+              organizations_url:
+                type: string
+              public_gists:
+                type: string
+              public_repos:
+                type: string
+              received_events_url:
+                type: string
+              remark:
+                type: string
+              repos_url:
+                type: string
+              stared:
+                type: string
+              starred_url:
+                type: string
+              subscriptions_url:
+                type: string
+              type:
+                type: string
+              updated_at:
+                type: string
+              url:
+                type: string
+              watched:
+                type: string
+              weibo:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 更新授权用户的资料
+      tags:
+        - user
   /user/enterprises:
     get:
       parameters:
@@ -10332,6 +15409,28 @@ paths:
       tags:
         - user
   '/user/following/{username}':
+    delete:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 用户名(username/login)
+          in: path
+          name: username
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 取消关注一个用户
+      tags:
+        - user
     get:
       parameters:
         - description: 用户授权码
@@ -10352,6 +15451,33 @@ paths:
       security:
         - access_token: []
       summary: 检查授权用户是否关注了一个用户
+      tags:
+        - user
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - description: 用户名(username/login)
+          in: path
+          name: username
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 关注一个用户
       tags:
         - user
   /user/issues:
@@ -10547,7 +15673,73 @@ paths:
       summary: 列出授权用户的所有公钥
       tags:
         - user
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              key:
+                description: 公钥内容
+                type: string
+              title:
+                description: 公钥名称
+                type: string
+            required:
+              - key
+              - title
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              created_at:
+                type: string
+              id:
+                type: string
+              key:
+                type: string
+              title:
+                type: string
+              url:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 添加一个公钥
+      tags:
+        - user
   '/user/keys/{id}':
+    delete:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 公钥 ID
+          in: path
+          name: id
+          required: true
+          type: integer
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 删除一个公钥
+      tags:
+        - user
     get:
       parameters:
         - description: 用户授权码
@@ -10634,6 +15826,28 @@ paths:
       tags:
         - orgs
   '/user/memberships/orgs/{org}':
+    delete:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 组织的路径(path/login)
+          in: path
+          name: org
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 退出一个组织
+      tags:
+        - orgs
     get:
       parameters:
         - description: 用户授权码
@@ -10671,6 +15885,53 @@ paths:
       security:
         - access_token: []
       summary: 获取授权用户在一个组织的成员资料
+      tags:
+        - orgs
+    patch:
+      consumes:
+        - application/json
+      parameters:
+        - description: 组织的路径(path/login)
+          in: path
+          name: org
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              remark:
+                description: 在组织中的备注信息
+                type: string
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              active:
+                type: string
+              organization:
+                $ref: '#/definitions/organization'
+              organization_url:
+                type: string
+              remark:
+                type: string
+              role:
+                type: string
+              url:
+                type: string
+              user:
+                type: string
+            type: object
+      security:
+        - access_token: []
+      summary: 更新授权用户在一个组织的成员资料
       tags:
         - orgs
   /user/namespace:
@@ -11018,6 +16279,208 @@ paths:
       summary: 列出授权用户的所有仓库
       tags:
         - repo
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              auto_init:
+                description: '值为true时则会用README初始化仓库。默认: 不初始化(false)'
+                type: boolean
+              can_comment:
+                description: 允许用户对仓库进行评论。默认： 允许(true)
+                type: boolean
+              description:
+                description: 仓库描述
+                type: string
+              gitignore_template:
+                description: Git Ignore模版
+                type: string
+              has_issues:
+                description: '允许提Issue与否。默认: 允许(true)'
+                type: boolean
+              has_wiki:
+                description: '提供Wiki与否。默认: 提供(true)'
+                type: boolean
+              homepage:
+                description: '主页(eg: https://gitee.com)'
+                type: string
+              license_template:
+                description: License模版
+                type: string
+              name:
+                description: 仓库名称
+                type: string
+              path:
+                description: 仓库路径
+                type: string
+              private:
+                description: 目前仅支持私有
+                type: boolean
+            required:
+              - name
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+          schema:
+            properties:
+              assignee:
+                $ref: '#/definitions/assignee'
+              assignees_number:
+                type: integer
+              assigner:
+                $ref: '#/definitions/assigner'
+              blobs_url:
+                type: string
+              branches_url:
+                type: string
+              can_comment:
+                type: boolean
+              collaborators_url:
+                type: string
+              comments_url:
+                type: string
+              commits_url:
+                type: string
+              contributors_url:
+                type: string
+              created_at:
+                type: string
+              default_branch:
+                type: string
+              description:
+                type: string
+              enterprise:
+                $ref: '#/definitions/enterprise'
+              fork:
+                type: boolean
+              forks_count:
+                type: integer
+              forks_url:
+                type: string
+              full_name:
+                type: string
+              gvp:
+                type: boolean
+              has_issues:
+                type: boolean
+              has_page:
+                type: boolean
+              has_wiki:
+                type: boolean
+              homepage:
+                type: string
+              hooks_url:
+                type: string
+              html_url:
+                type: string
+              human_name:
+                type: string
+              id:
+                type: integer
+              internal:
+                type: string
+              issue_comment:
+                type: boolean
+              issue_comment_url:
+                type: string
+              issue_template_source:
+                type: string
+              issues_url:
+                type: string
+              keys_url:
+                type: string
+              labels_url:
+                type: string
+              language:
+                type: string
+              license:
+                type: string
+              members:
+                type: object
+              milestones_url:
+                type: string
+              name:
+                type: string
+              namespace:
+                $ref: '#/definitions/namespace'
+              notifications_url:
+                type: string
+              open_issues_count:
+                type: integer
+              outsourced:
+                type: boolean
+              owner:
+                $ref: '#/definitions/owner'
+              paas:
+                type: string
+              parent:
+                $ref: '#/definitions/parent'
+              path:
+                type: string
+              permission:
+                type: object
+              private:
+                type: boolean
+              programs:
+                $ref: '#/definitions/programs'
+              project_creator:
+                type: string
+              project_labels:
+                $ref: '#/definitions/project_labels'
+              public:
+                type: boolean
+              pull_requests_enabled:
+                type: boolean
+              pulls_url:
+                type: string
+              pushed_at:
+                type: string
+              recommend:
+                type: boolean
+              relation:
+                type: string
+              releases_url:
+                type: string
+              ssh_url:
+                type: string
+              stared:
+                type: boolean
+              stargazers_count:
+                type: integer
+              stargazers_url:
+                type: string
+              status:
+                type: string
+              tags_url:
+                type: string
+              testers:
+                $ref: '#/definitions/testers'
+              testers_number:
+                type: integer
+              updated_at:
+                type: string
+              url:
+                type: string
+              watched:
+                type: boolean
+              watchers_count:
+                type: integer
+            type: object
+      security:
+        - access_token: []
+      summary: 创建一个仓库
+      tags:
+        - repo
   /user/starred:
     get:
       parameters:
@@ -11202,6 +16665,33 @@ paths:
       tags:
         - user
   '/user/starred/{owner}/{repo}':
+    delete:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 取消 star 一个仓库
+      tags:
+        - user
     get:
       parameters:
         - description: 用户授权码
@@ -11227,6 +16717,38 @@ paths:
       security:
         - access_token: []
       summary: 检查授权用户是否 star 了一个仓库
+      tags:
+        - user
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: star 一个仓库
       tags:
         - user
   /user/subscriptions:
@@ -11413,6 +16935,33 @@ paths:
       tags:
         - user
   '/user/subscriptions/{owner}/{repo}':
+    delete:
+      parameters:
+        - description: 用户授权码
+          in: query
+          name: access_token
+          required: false
+          type: string
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: 取消 watch 一个仓库
+      tags:
+        - user
     get:
       parameters:
         - description: 用户授权码
@@ -11438,6 +16987,43 @@ paths:
       security:
         - access_token: []
       summary: 检查授权用户是否 watch 了一个仓库
+      tags:
+        - user
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - description: 仓库所属空间地址(企业、组织或个人的地址path)
+          in: path
+          name: owner
+          required: true
+          type: string
+        - description: 仓库路径(path)
+          in: path
+          name: repo
+          required: true
+          type: string
+        - in: body
+          name: body
+          schema:
+            properties:
+              access_token:
+                description: 用户授权码
+                type: string
+              watch_type:
+                description: 'watch策略, watching: 关注所有动态, ignoring: 关注但不提醒动态'
+                type: string
+            required:
+              - watch_type
+            type: object
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successfully
+      security:
+        - access_token: []
+      summary: watch 一个仓库
       tags:
         - user
   /users/organization:
@@ -12701,34 +18287,6 @@ paths:
         - user
 schemes:
   - https
-securityDefinitions:
-  access_token:
-    in: query
-    name: access_token
-    type: apiKey
-  gitee_auth:
-    authorizationUrl: 'https://gitee.com/oauth/authorize'
-    flow: implicit
-    scopes:
-      'read:enterprises': ''
-      'read:gists': ''
-      'read:groups': ''
-      'read:issues': ''
-      'read:keys': ''
-      'read:notes': ''
-      'read:projects': ''
-      'read:pull_requests': ''
-      'read:user_info': ''
-      'write:enterprises': ''
-      'write:gists': ''
-      'write:groups': ''
-      'write:issues': ''
-      'write:keys': ''
-      'write:notes': ''
-      'write:projects': ''
-      'write:pull_requests': ''
-      'write:user_info': ''
-    type: oauth2
 swagger: '2.0'
 x-components: {}
 
