@@ -5,3 +5,9 @@
 接口未经验证，并持续整理。欢迎提交PR。
 
 最后更新日期: **2023/11/25**
+
+## Gen
+通过工具将`openapi.json`转换成其他格式
+```shell
+api-spec-converter --from=openapi_3 --to=swagger_2 --syntax=yaml --order=alpha openapi.json > /gen/swagger.yaml
+```
