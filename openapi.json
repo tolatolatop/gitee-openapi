@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Gitee OpenApi",
-    "version": "1.0.0",
+    "version": "1.1.1",
     "description": "All api provided by Gitee"
   },
   "servers": [
@@ -29448,7 +29448,7 @@
       "contexts": {
         "type": "object",
         "properties": {
-          "": {
+          "bug": {
             "type": "string"
           }
         }
@@ -29456,7 +29456,7 @@
       "mergers": {
         "type": "object",
         "properties": {
-          "": {
+          "bug": {
             "type": "string"
           }
         }
@@ -29464,7 +29464,7 @@
       "pushers": {
         "type": "object",
         "properties": {
-          "": {
+          "bug": {
             "type": "string"
           }
         }
@@ -29472,7 +29472,7 @@
       "api_reviewers": {
         "type": "object",
         "properties": {
-          "": {
+          "bug": {
             "type": "string"
           }
         }
@@ -29480,7 +29480,7 @@
       "assignees": {
         "type": "object",
         "properties": {
-          "": {
+          "bug": {
             "type": "string"
           }
         }

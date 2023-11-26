@@ -41,7 +41,7 @@ definitions:
     type: object
   api_reviewers:
     properties:
-      '':
+      bug:
         type: string
     type: object
   assignee:
@@ -85,7 +85,7 @@ definitions:
     type: object
   assignees:
     properties:
-      '':
+      bug:
         type: string
     type: object
   assigner:
@@ -265,7 +265,7 @@ definitions:
     type: object
   contexts:
     properties:
-      '':
+      bug:
         type: string
     type: object
   counts:
@@ -405,7 +405,7 @@ definitions:
     type: object
   mergers:
     properties:
-      '':
+      bug:
         type: string
     type: object
   milestone:
@@ -702,7 +702,7 @@ definitions:
     type: object
   pushers:
     properties:
-      '':
+      bug:
         type: string
     type: object
   ref_pull_requests:
@@ -907,7 +907,7 @@ host: gitee.com
 info:
   description: All api provided by Gitee
   title: Gitee OpenApi
-  version: 1.0.0
+  version: 1.1.1
 paths:
   /emails:
     get:
