@@ -28802,11 +28802,7 @@
               "pull_request": {
                 "type": "object"
               }
-            },
-            "required": [
-              "issue",
-              "pull_request"
-            ]
+            }
           },
           "target": {
             "type": "object",

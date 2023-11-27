@@ -249,9 +249,6 @@ definitions:
             type: object
           pull_request:
             type: object
-        required:
-          - issue
-          - pull_request
         type: object
       target:
         properties:
