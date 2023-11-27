@@ -224,6 +224,69 @@ definitions:
       url:
         type: string
     type: object
+  comment:
+    properties:
+      body:
+        type: string
+      created_at:
+        type: string
+      id:
+        type: integer
+      source:
+        properties:
+          issue:
+            properties:
+              id:
+                type: integer
+              number:
+                type: string
+              title:
+                type: string
+            required:
+              - id
+              - title
+              - number
+            type: object
+          pull_request:
+            type: object
+        required:
+          - issue
+          - pull_request
+        type: object
+      target:
+        properties:
+          issue:
+            properties:
+              id:
+                type: integer
+              number:
+                type: string
+              title:
+                type: string
+            required:
+              - id
+              - title
+              - number
+            type: object
+          pull_request:
+            type: boolean
+        required:
+          - issue
+          - pull_request
+        type: object
+      updated_at:
+        type: string
+      user:
+        $ref: '#/definitions/user'
+    required:
+      - id
+      - body
+      - user
+      - source
+      - target
+      - created_at
+      - updated_at
+    type: object
   commit:
     properties:
       author:
@@ -7291,28 +7354,9 @@ paths:
         '200':
           description: successfully
           schema:
-            properties:
-              body:
-                type: string
-              body_html:
-                type: string
-              created_at:
-                type: string
-              id:
-                type: string
-              in_reply_to_id:
-                type: string
-              in_reply_to_user:
-                $ref: '#/definitions/in_reply_to_user'
-              source:
-                type: string
-              target:
-                type: string
-              updated_at:
-                type: string
-              user:
-                type: string
-            type: object
+            items:
+              $ref: '#/definitions/comment'
+            type: array
       security:
         - access_token: []
       summary: 获取仓库的Commit评论
@@ -9673,28 +9717,9 @@ paths:
         '200':
           description: successfully
           schema:
-            properties:
-              body:
-                type: string
-              body_html:
-                type: string
-              created_at:
-                type: string
-              id:
-                type: string
-              in_reply_to_id:
-                type: string
-              in_reply_to_user:
-                $ref: '#/definitions/in_reply_to_user'
-              source:
-                type: string
-              target:
-                type: string
-              updated_at:
-                type: string
-              user:
-                type: string
-            type: object
+            items:
+              $ref: '#/definitions/comment'
+            type: array
       security:
         - access_token: []
       summary: 获取仓库某个Issue所有的评论
