@@ -10873,38 +10873,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "body": {
-                      "type": "string"
-                    },
-                    "body_html": {
-                      "type": "string"
-                    },
-                    "created_at": {
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "string"
-                    },
-                    "in_reply_to_id": {
-                      "type": "string"
-                    },
-                    "in_reply_to_user": {
-                      "$ref": "#/components/schemas/in_reply_to_user"
-                    },
-                    "source": {
-                      "type": "string"
-                    },
-                    "target": {
-                      "type": "string"
-                    },
-                    "updated_at": {
-                      "type": "string"
-                    },
-                    "user": {
-                      "type": "string"
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/comment"
                   }
                 }
               }
@@ -21869,38 +21840,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "body": {
-                      "type": "string"
-                    },
-                    "body_html": {
-                      "type": "string"
-                    },
-                    "created_at": {
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "string"
-                    },
-                    "in_reply_to_id": {
-                      "type": "string"
-                    },
-                    "in_reply_to_user": {
-                      "$ref": "#/components/schemas/in_reply_to_user"
-                    },
-                    "source": {
-                      "type": "string"
-                    },
-                    "target": {
-                      "type": "string"
-                    },
-                    "updated_at": {
-                      "type": "string"
-                    },
-                    "user": {
-                      "type": "string"
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/comment"
                   }
                 }
               }
@@ -28822,6 +28764,97 @@
             "type": "object"
           }
         }
+      },
+      "comment": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "body": {
+            "type": "string"
+          },
+          "user": {
+            "$ref": "#/components/schemas/user"
+          },
+          "source": {
+            "type": "object",
+            "properties": {
+              "issue": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "number": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "title",
+                  "number"
+                ]
+              },
+              "pull_request": {
+                "type": "object"
+              }
+            },
+            "required": [
+              "issue",
+              "pull_request"
+            ]
+          },
+          "target": {
+            "type": "object",
+            "properties": {
+              "issue": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "number": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "title",
+                  "number"
+                ]
+              },
+              "pull_request": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "issue",
+              "pull_request"
+            ]
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "body",
+          "user",
+          "source",
+          "target",
+          "created_at",
+          "updated_at"
+        ]
       },
       "labels": {
         "type": "object",
